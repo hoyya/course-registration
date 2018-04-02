@@ -31,7 +31,8 @@
         <activity android:name=".compltedCourses" />
         <activity android:name=".currentClasses" />
         <activity android:name=".remainingCourses" />
-        <activity android:name=".remainingClasses"></activity>
+        <activity android:name=".remainingClasses" />
+        <activity android:name=".course_details"></activity>
     </application>
 
 </manifest>

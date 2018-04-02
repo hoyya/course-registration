@@ -29,12 +29,13 @@ public class Main2Activity extends AppCompatActivity {
     public int year, seats;
     ArrayList<Course> courseList = new ArrayList<Course>();
     ArrayList<Course> database_results = new ArrayList<Course>();
+    public ArrayList<Course> results_courses;
     TextView text2, text3, text4, text5;
     ListView results_List;
     Button Apply_Button;
-    Course CSCI3130 = new Course();
-    Course CSCI3160 = new Course();
+    Course course;
     public ArrayAdapter results_Adapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +52,7 @@ public class Main2Activity extends AppCompatActivity {
         Spinner spinner2 = findViewById(R.id.spinner3);
         Spinner spinner3 = findViewById(R.id.spinner4);
         //Calls the array to be displayed
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.faculty_array, android.R.layout.simple_spinner_item);
+        final ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.faculty_array, android.R.layout.simple_spinner_item);
         ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this, R.array.year_array, android.R.layout.simple_spinner_item);
         ArrayAdapter<CharSequence> adapter3 = ArrayAdapter.createFromResource(this, R.array.seat_array, android.R.layout.simple_spinner_item);
         //Sets the adapters view from resource
@@ -78,6 +79,21 @@ public class Main2Activity extends AppCompatActivity {
         results_List = this.findViewById(R.id.resultsList);
         results_Adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, database_results);
         results_List.setAdapter(results_Adapter);
+
+        results_List.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                System.out.println(position);
+                System.out.println("size = "+results_courses.size());
+                course = results_courses.get(position);
+                Intent intent = new Intent(Main2Activity.this, course_details.class);
+                Bundle extras = new Bundle();
+                extras.putSerializable("user", user);
+                extras.putSerializable("course", course);
+                intent.putExtras(extras);
+                startActivityForResult(intent, 0);
+            }
+        });
 
 
         //Adapter of faculty
@@ -187,14 +203,13 @@ public class Main2Activity extends AppCompatActivity {
         String seats = (Filter3);
         String faculty = (Filter1);
         results_Adapter.clear();
-        ArrayList<Course> tmp_results = new ArrayList<Course>();
         filtered_search search_instance = new filtered_search();
 
-        //((myApplication) this.getApplication()).setCourses(db.getCourselist());
+        results_courses = search_instance.QUERY_COURSES_DB(faculty, year, seats);
 
-        tmp_results = search_instance.QUERY_COURSES_DB(faculty, year, seats);
+        System.out.println("size = "+results_courses.size());
 
-        results_Adapter.addAll(tmp_results);
+        results_Adapter.addAll(results_courses);
 
     }
     //This method determines if the user's database profile already has the selected course.
@@ -206,16 +221,12 @@ public class Main2Activity extends AppCompatActivity {
      * @return
      */
     public boolean notCompleted(String filterSelection) {
-        CSCI3130.setTitle("CSCI3130");
-        CSCI3160.setTitle("CSCI3160");
-        courseList.add(CSCI3130);
-        courseList.add(CSCI3160);
-        User ul = new User("aj.mantolino@dal.ca", "AJ", courseList, null, null, "Mantolino", "pA$$w0rD", "theMan");
+
         boolean notCompleted = true;
         //loops through to compare if there's a match.
-        for (int i = 0; i < ul.getCompleted().size(); i++) {
+        for (int i = 0; i < user.getCompleted().size(); i++) {
             //If there's a match with the registered course and selected filter
-            if (filterSelection.equalsIgnoreCase(ul.getCompleted().get(i).getTitle()))
+            if (filterSelection.equalsIgnoreCase(user.getCompleted().get(i).getTitle()))
                 notCompleted = false;
 
         }
@@ -256,14 +267,10 @@ public class Main2Activity extends AppCompatActivity {
      * @return
      */
     public boolean timeError(String time) {
-        courseList.add(CSCI3130);
-        courseList.add(CSCI3160);
-        User ul = new User("aj.mantolino@dal.ca", "AJ", courseList, null, null, "Mantolino", "pA$$w0rD", "theMan");
-        CSCI3130.setTime("1100");
-        CSCI3160.setTime("1200");
+
         boolean Error = false;
-        for (int i = 0; i < ul.getCompleted().size(); i++) {
-            if (time.equalsIgnoreCase(ul.getCompleted().get(i).getTime()))
+        for (int i = 0; i < user.getCompleted().size(); i++) {
+            if (time.equalsIgnoreCase(user.getCompleted().get(i).getTime()))
                 Error = true;
         }
         return Error;
@@ -302,4 +309,10 @@ public class Main2Activity extends AppCompatActivity {
         setResult(0, intent);
         finish();
     }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        user = (User) data.getSerializableExtra("user");
+    }
+
 }
