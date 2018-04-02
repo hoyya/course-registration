@@ -50,7 +50,9 @@ public class DataBase implements Serializable {
 
 
 		ArrayList<Course> remaining = new ArrayList<Course>();
+		remaining.add(course1);
 		remaining.add(course2);
+		remaining.add(course3);
 
 		// email, String first_name, String completed, String current, String remaining, String last_name, String password, String username
 		User user1 = new User("admin@dal.ca", "john", completed, current, remaining, "doe", "admin", "admin");

@@ -322,5 +322,5 @@ public class Course implements Serializable {
 
 
 
-    public String toString(){return this.title + " " + this.term + " " + this.act;}
+    public String toString(){return this.title + " "+this.faculty+this.year+ " \n" + this.term + " " + this.days +" "+ this.time;}
 }

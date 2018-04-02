@@ -65,9 +65,13 @@ public class filtered_search {
         //String results = "";
         //String results = db.getCourselist().get(0).getFaculty()+db.getCourselist().get(0).getYear()+" "+db.getCourselist().get(0).getRem()+" seats remaining";
 
+        System.out.println("faculty = "+m_faculty);
+        System.out.println("year = "+m_year);
         for (int i=0; i<db.getCourselist().size(); i++) {
-            if (db.getCourselist().get(i).getFaculty() == m_faculty || m_faculty == "") {
-                if (true) {
+            if (db.getCourselist().get(i).getFaculty() == m_faculty || m_faculty == "ANY") {
+                System.out.println("cyear = "+db.getCourselist().get(i).getYear().charAt(0));
+                System.out.println("year = "+year.charAt(0));
+                if ((db.getCourselist().get(i).getYear().charAt(0) == year.charAt(0)) || (year == "ANY")) {
                     if (true) {
                         //if ((Integer.parseInt(m_open_spots) == Integer.parseInt(db.getCourselist().get(i).getRem())) || (m_open_spots == "0")) {
                         results.add(db.getCourselist().get(i));
@@ -88,12 +92,14 @@ public class filtered_search {
         db.initialize();
 
         ArrayList<Course> results = new ArrayList<Course>();
-        //String results = "";
-        //String results = db.getCourselist().get(0).getFaculty()+db.getCourselist().get(0).getYear()+" "+db.getCourselist().get(0).getRem()+" seats remaining";
 
+        System.out.println("faculty = "+m_faculty);
+        System.out.println("year = "+m_year);
         for (int i=0; i<db.getCourselist().size(); i++) {
-            if (db.getCourselist().get(i).getFaculty() == m_faculty || m_faculty == "") {
-                if (true) {
+            if (db.getCourselist().get(i).getFaculty() == m_faculty || m_faculty == "ANY") {
+                System.out.println("cyear = "+db.getCourselist().get(i).getYear().charAt(0));
+                System.out.println("year = "+year.charAt(0));
+                if ((db.getCourselist().get(i).getYear().charAt(0) == year.charAt(0)) || (year == "ANY")) {
                     if (true) {
                         //if ((Integer.parseInt(m_open_spots) == Integer.parseInt(db.getCourselist().get(i).getRem())) || (m_open_spots == "0")) {
                         results.add(db.getCourselist().get(i));

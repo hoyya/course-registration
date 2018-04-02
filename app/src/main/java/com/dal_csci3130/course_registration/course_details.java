@@ -17,6 +17,7 @@ public class course_details extends AppCompatActivity {
     private Course course;
     private User user;
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +30,15 @@ public class course_details extends AppCompatActivity {
 
         notice = (TextView) findViewById(R.id.notice);
         tview = (TextView) findViewById(R.id.textView);
-        tview.setText(course.getTitle()+course.getYear()+"\nRemaining:"+course.getRem()+"\nCapacity:"+course.getCap()+"\nProffessor:"+course.getProfessor()+"\nBuilding:"+course.getLocation()+"\nDescription\n"+course.getDescription());
+        tview.setText(course.getTitle()+course.getYear()+
+                "\nRemaining:"+course.getRem()+
+                "\nCapacity:"+course.getCap()+
+                "\nDays:"+course.getDays()+
+                "\nTime:"+course.getTime()+
+                "\nTerm:"+course.getTerm()+
+                "\nProffessor:"+course.getProfessor()+
+                "\nBuilding:"+course.getLocation()+
+                "\nDescription\n"+course.getDescription());
 
 
 
@@ -51,11 +60,34 @@ public class course_details extends AppCompatActivity {
         ArrayList<Course> current = user.getCurrent();
         ArrayList<Course> remaining = user.getRemaining();
 
+        boolean problem = false;
+        boolean timeconflict = false;
+        Course conflict1;
+        Course conflict2;
+
+        for (int x=1; x<current.size();x++) {
+            if (current.get(x).getTime() == course.getTime()) {
+                if (current.get(x).getDays() == course.getDays()) {
+                    //todo: check conflict conditions for edge cases
+                    timeconflict = true;
+                }
+            }
+        }
+
         if (completed.contains(course) || current.contains(course)) {
-            System.out.println("Already completed or signed up");
-            notice.setText("Already Completed or Signed up to Course");
+            System.out.println("Already completed or signed up\n");
+            notice.setText("Already Completed or Signed up to Course\n");
+            problem = true;
         }
         else {
+            notice.setText("");
+        }
+        if (timeconflict) {
+            System.out.println("Time conflict between two classes\n");
+            notice.setText(notice.getText()+"Time conflict between two courses");
+            problem = true;
+        }
+        if (!problem) {
             notice.setText("");
             current.add(course);
             remaining.remove(course);

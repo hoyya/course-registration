@@ -24,7 +24,7 @@ public class Main2Activity extends AppCompatActivity {
     //myApplication myapp = (myApplication)getApplication();
     //User user = myapp.getUser();
 
-    public String Filter1, Filter2, Filter3, results;
+    public String Filter1, Filter2;
     public User user;
     public int year, seats;
     ArrayList<Course> courseList = new ArrayList<Course>();
@@ -50,7 +50,6 @@ public class Main2Activity extends AppCompatActivity {
         //Creation of the spinners used to display the string array filters.
         Spinner spinner = findViewById(R.id.spinner2);
         Spinner spinner2 = findViewById(R.id.spinner3);
-        Spinner spinner3 = findViewById(R.id.spinner4);
         //Calls the array to be displayed
         final ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.faculty_array, android.R.layout.simple_spinner_item);
         ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this, R.array.year_array, android.R.layout.simple_spinner_item);
@@ -62,17 +61,14 @@ public class Main2Activity extends AppCompatActivity {
         //Sets the spinner
         spinner.setAdapter(adapter);
         spinner2.setAdapter(adapter2);
-        spinner3.setAdapter(adapter3);
         //Creation of button
         Apply_Button = this.findViewById(R.id.applyButton);
         //Gets filter conditions
         Filter1 = spinner.getSelectedItem().toString();
         Filter2 = spinner2.getSelectedItem().toString();
-        Filter3 = spinner3.getSelectedItem().toString();
         //Creates text
-        text2 = this.findViewById(R.id.textView2);
+
         text3 = this.findViewById(R.id.textView3);
-        text4 = this.findViewById(R.id.textView4);
         text5 = this.findViewById(R.id.textView5);
 
 
@@ -84,7 +80,7 @@ public class Main2Activity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 System.out.println(position);
-                System.out.println("size = "+results_courses.size());
+                System.out.println("size = " + results_courses.size());
                 course = results_courses.get(position);
                 Intent intent = new Intent(Main2Activity.this, course_details.class);
                 Bundle extras = new Bundle();
@@ -102,18 +98,21 @@ public class Main2Activity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 switch (i) {
                     case 0:
-                        Filter1 = "CSCI";
+                        Filter1 = "ANY";
                         break;
                     case 1:
-                        Filter1 = "MATH";
+                        Filter1 = "CSCI";
                         break;
                     case 2:
-                        Filter1 = "MGMT";
+                        Filter1 = "MATH";
                         break;
                     case 3:
-                        Filter1 = "POLI";
+                        Filter1 = "MGMT";
                         break;
                     case 4:
+                        Filter1 = "POLI";
+                        break;
+                    case 5:
                         Filter1 = "BIOL";
                         break;
                 }
@@ -130,21 +129,24 @@ public class Main2Activity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 switch (i) {
                     case 0:
-                        Filter2 = "1";
+                        Filter2 = "ANY";
                         break;
                     case 1:
-                        Filter2 = "2";
+                        Filter2 = "1";
                         break;
                     case 2:
-                        Filter2 = "3";
+                        Filter2 = "2";
                         break;
                     case 3:
-                        Filter2 = "4";
+                        Filter2 = "3";
                         break;
                     case 4:
-                        Filter2 = "6";
+                        Filter2 = "4";
                         break;
                     case 5:
+                        Filter2 = "6";
+                        break;
+                    case 6:
                         Filter2 = "8";
                         break;
                 }
@@ -155,57 +157,18 @@ public class Main2Activity extends AppCompatActivity {
 
             }
         });
-        //Adapter for seat capacity
-        spinner3.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                switch (i) {
-                    case 0:
-                        Filter3 = "50";
-                        break;
-                    case 1:
-                        Filter3 = "100";
-                        break;
-                    case 2:
-                        Filter3 = "150";
-                        break;
-                    case 3:
-                        Filter3 = "200";
-                        break;
-                    case 4:
-                        Filter3 = "300";
-                        break;
-                    case 5:
-                        Filter3 = "400";
-                        break;
-                    case 6:
-                        Filter3 = "500";
-                        break;
-                    case 7:
-                        Filter3 = "600";
-                        break;
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
     }
-
     public void filterApply(View v) {
         //results of query
         String tmp_string = "";
 
         //parses string input to int
         String year = (Filter2);
-        String seats = (Filter3);
         String faculty = (Filter1);
         results_Adapter.clear();
         filtered_search search_instance = new filtered_search();
 
-        results_courses = search_instance.QUERY_COURSES_DB(faculty, year, seats);
+        results_courses = search_instance.QUERY_COURSES_DB(faculty, year, "0");
 
         System.out.println("size = "+results_courses.size());
 

@@ -2,6 +2,7 @@
 <resources>
 
     <string-array name="faculty_array">
+        <item>ANY</item>
         <item>Computer Science</item>
         <item>Mathematics</item>
         <item>Management</item>
@@ -36,6 +37,7 @@
     </string-array>
 
     <string-array name="year_array">
+        <item>ANY</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
