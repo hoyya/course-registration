@@ -79,8 +79,6 @@ public class Main2Activity extends AppCompatActivity {
         results_List.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                System.out.println(position);
-                System.out.println("size = " + results_courses.size());
                 course = results_courses.get(position);
                 Intent intent = new Intent(Main2Activity.this, course_details.class);
                 Bundle extras = new Bundle();
@@ -170,7 +168,6 @@ public class Main2Activity extends AppCompatActivity {
 
         results_courses = search_instance.QUERY_COURSES_DB(faculty, year, "0");
 
-        System.out.println("size = "+results_courses.size());
 
         results_Adapter.addAll(results_courses);
 
