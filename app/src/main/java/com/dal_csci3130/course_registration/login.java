@@ -12,7 +12,6 @@ import android.widget.Toast;
 public class login extends Activity {
     private User user;
     private static boolean enabled;
-    int attempt_counter = 5;
     private DataBase db;
 
     public static void setEnabled(boolean enabled) {
@@ -65,9 +64,6 @@ public class login extends Activity {
             public void onClick(View view) {
 
                 //validUser(username.getText().toString(), password.getText().toString());
-                TextView attempts = (TextView) findViewById(R.id.attempts);
-
-                attempts.setText(Integer.toString(attempt_counter));
 
 
 
@@ -80,15 +76,6 @@ public class login extends Activity {
                         extras.putSerializable("database", db);
                         intent.putExtras(extras);
                         startActivityForResult(intent,0);
-                    } else {
-
-                        Toast.makeText(login.this, "User and Password is not correct",
-                                Toast.LENGTH_SHORT).show();
-                        attempt_counter--;
-                        attempts.setText(Integer.toString(attempt_counter));
-                        if (attempt_counter == 0) {
-                            login.setEnabled(false);
-                        }
                     }
 
                 }
