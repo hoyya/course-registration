@@ -21,6 +21,8 @@ public class course_details extends AppCompatActivity {
     private ArrayList<Course> current;
     private ArrayList<Course> remaining;
     private DataBase db;
+    private int rating;
+
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -37,6 +39,17 @@ public class course_details extends AppCompatActivity {
         completed = user.getCompleted();
         current = user.getCurrent();
         remaining = user.getRemaining();
+        rating = 0;
+        int max = 0;
+
+        if (course.getRating()!=null) {
+            System.out.println("rating size : "+course.getRating().size());
+            for (int x = 0; x < course.getRating().size(); x++) {
+                System.out.println("rating : "+course.getRating().get(x));
+                rating += course.getRating().get(x);
+                max+=1;
+            }
+        };
 
         notice = (TextView) findViewById(R.id.notice);
         tview = (TextView) findViewById(R.id.textView);
@@ -47,9 +60,11 @@ public class course_details extends AppCompatActivity {
                 "\nTime:"+course.getTime()+
                 "\nTerm:"+course.getTerm()+
                 "\nProffessor:"+course.getProfessor()+
+                "\nRating: "+(rating/1.0)/max+
                 "\nBuilding:"+course.getLocation()+
                 "\nDescription:\n"+course.getDescription()+
-                "\n\nPrereq: "+course.getPrereq());
+                "\n\nPrereq of: "+course.getPrereq()+
+                "\n\nPrereq for: "+course.getPrereqf());
 
     }
 

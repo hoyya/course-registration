@@ -23,14 +23,26 @@ public class DataBase implements Serializable {
 	public void initialize() {
 		////GET ALL DB OBJECTS
 
-		Course course1 = new Course("0","20","20","91","115","3.000","TR","Implementing Agile workstyle as a team","04/06/2018","CSCI","Psychology building","{CSCI2110 : C|CSCI2111 : C}","Juliano Franz","24","01","01/08/2018","CSCI","winter","14:35-15:55","Software Engineering","3130");
-		Course course2 = new Course("0","20","20","91","100","3.000","MWF","Introduction to Cryptography","04/06/2018","CSCI","LSC","{CSCI2110 : C|CSCI2111 : C}","Peter Selinger","9","01","01/08/2018","CSCI","winter","14:35-15:25","Cryptography","4116");
-		Course course3 = new Course("15","20","5","95","95","3.000","TR","Operating systems","04/06/2018","CSCI","Psychology building","{CSCI2110 : C|CSCI2111 : C}","Alex Brodsky","0","01","01/08/2018","CSCI","winter","13:05-14:30","Operating Systems","3120");
-		Course course4 = new Course("15","20","5","95","95","3.000","MTW","UI Design","12/12/2017","CSCI","LSC Building","{CSCI2110 : C|CSCI2111 : C}","Math Teacher","44","01","06/08/2017","CSCI","fall","8:30-9:55","UI Design","3160");
-		Course course5 = new Course("15","20","5","95","95","3.000","MTW","Matrices","12/12/2017","MATH","LSC Building","{MATH2110 : C|MATH2111 : C}","Math Teacher","5","01","06/08/2017","CSCI","fall","8:30-9:55","Matrices","2210");
-		Course course6 = new Course("15","20","5","95","95","3.000","MTW","Equations","12/12/2017","MATH","LSC Building","{MATH2110 : C|MATH2111 : C}","Math Teacher","0","01","06/08/2017","CSCI","fall","8:30-9:55","Equations","2211");
-		Course course7 = new Course("15","20","5","95","95","3.000","MTW","Graphs","12/12/2017","MATH","LSC Building","{MATH2110 : C|MATH2111 : C}","Math Teacher","0","01","06/08/2017","CSCI","fall","8:30-9:55","Graphs","2212");
-		Course course8 = new Course("15","20","5","95","95","3.000","MTW","Algebra","12/12/2017","MATH","LSC Building","{MATH2110 : C|MATH2111 : C}","Math Teacher","11","01","06/08/2017","CSCI","fall","8:30-9:55","Algebra","2213");
+		ArrayList<Integer> l1 = new ArrayList<Integer>();
+		l1.add(7);
+		l1.add(9);
+		ArrayList<Integer> l2 = new ArrayList<Integer>();
+		l2.add(8);
+		l2.add(9);
+		ArrayList<Integer> l3 = new ArrayList<Integer>();
+		l3.add(5);
+		l3.add(7);
+		ArrayList<Integer> l4 = new ArrayList<Integer>();
+		l4.add(5);
+		l4.add(3);
+		Course course1 = new Course("0","20","20","91","115","3.000","TR","Implementing Agile workstyle as a team","04/06/2018","CSCI","Psychology building","{CSCI2110 : C|CSCI2111 : C}","Juliano Franz","24","01","01/08/2018","CSCI","winter","14:35-15:55","Software Engineering","3130", "CSCI4116: C", l1);
+		Course course2 = new Course("0","20","20","91","100","3.000","MWF","Introduction to Cryptography","04/06/2018","CSCI","LSC","{CSCI2110 : C|CSCI2111 : C}","Peter Selinger","9","01","01/08/2018","CSCI","winter","14:35-15:25","Cryptography","4116", "", l2);
+		Course course3 = new Course("15","20","5","95","95","3.000","TR","Operating systems","04/06/2018","CSCI","Psychology building","{CSCI2110 : C|CSCI2111 : C}","Alex Brodsky","0","01","01/08/2018","CSCI","winter","13:05-14:30","Operating Systems","3120", "CSCI4116: C", l3);
+		Course course4 = new Course("15","20","5","95","95","3.000","MTW","UI Design","12/12/2017","CSCI","LSC Building","{CSCI2110 : C|CSCI2111 : C}","Math Teacher","44","01","06/08/2017","CSCI","fall","8:30-9:55","UI Design","3160", "", l4);
+		Course course5 = new Course("15","20","5","95","95","3.000","MTW","Matrices","12/12/2017","MATH","LSC Building","{MATH2110 : C|MATH2111 : C}","Math Teacher","5","01","06/08/2017","CSCI","fall","8:30-9:55","Matrices","2210", "", null);
+		Course course6 = new Course("15","20","5","95","95","3.000","MTW","Equations","12/12/2017","MATH","LSC Building","{MATH2110 : C|MATH2111 : C}","Math Teacher","0","01","06/08/2017","CSCI","fall","8:30-9:55","Equations","2211", "", null);
+		Course course7 = new Course("15","20","5","95","95","3.000","MTW","Graphs","12/12/2017","MATH","LSC Building","{MATH2110 : C|MATH2111 : C}","Math Teacher","0","01","06/08/2017","CSCI","fall","8:30-9:55","Graphs","2212", "", null);
+		Course course8 = new Course("15","20","5","95","95","3.000","MTW","Algebra","12/12/2017","MATH","LSC Building","{MATH2110 : C|MATH2111 : C}","Math Teacher","11","01","06/08/2017","CSCI","fall","8:30-9:55","Algebra","2213", "", null);
 
 		courselist.add(course1);
 		courselist.add(course2);
