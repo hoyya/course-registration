@@ -15,6 +15,7 @@ public class profile extends AppCompatActivity {
     public String Major;
     public String Minor;
     public User user;
+    public DataBase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +23,12 @@ public class profile extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
 
         Intent i = getIntent();
-        user = (User) i.getSerializableExtra("user");
+        Bundle extras = i.getExtras();
+        user = (User) extras.getSerializable("user");
+        db = (DataBase) extras.getSerializable("database");
+
+        System.out.println("Size of courselist in profile_view: " + db.getCourselist().size());
+
 
         if (user != null) {
 
@@ -59,7 +65,13 @@ public class profile extends AppCompatActivity {
             public void onClick(View view) {
 
                 Intent intent = new Intent(profile.this, Main2Activity.class);
-                intent.putExtra("user", user);
+                Bundle extras = new Bundle();
+                extras.putSerializable("user", user);
+                extras.putSerializable("database", db);
+                intent.putExtras(extras);
+
+
+
                 startActivityForResult(intent,0);
 
             }
@@ -71,6 +83,7 @@ public class profile extends AppCompatActivity {
 
                 Intent intent = new Intent(profile.this, currentClasses.class);
                 intent.putExtra("user", user);
+                intent.putExtra("database", db);
                 startActivityForResult(intent,0);
 
             }
@@ -82,6 +95,7 @@ public class profile extends AppCompatActivity {
 
                 Intent intent = new Intent(profile.this, compltedCourses.class);
                 intent.putExtra("user", user);
+                intent.putExtra("database", db);
                 startActivityForResult(intent,0);
 
             }
@@ -93,6 +107,7 @@ public class profile extends AppCompatActivity {
 
                 Intent intent = new Intent(profile.this, remainingClasses.class);
                 intent.putExtra("user", user);
+                intent.putExtra("database", db);
                 startActivityForResult(intent,0);
 
             }
@@ -195,6 +210,22 @@ public class profile extends AppCompatActivity {
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        user = (User) data.getSerializableExtra("user");
+        Bundle extras = data.getExtras();
+        user = (User) extras.getSerializable("user");
+        db = (DataBase) extras.getSerializable("database");
     }
+
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+        Intent intent = new Intent();
+        Bundle extras = new Bundle();
+        extras.putSerializable("user", user);
+        extras.putSerializable("database", db);
+        intent.putExtras(extras);
+        setResult(0, intent);
+        finish();
+    }
+
+
 }

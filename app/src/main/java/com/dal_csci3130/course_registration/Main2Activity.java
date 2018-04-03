@@ -23,7 +23,7 @@ public class Main2Activity extends AppCompatActivity {
 
     //myApplication myapp = (myApplication)getApplication();
     //User user = myapp.getUser();
-
+    DataBase db;
     public String Filter1, Filter2;
     public User user;
     public int year, seats;
@@ -44,7 +44,9 @@ public class Main2Activity extends AppCompatActivity {
         setContentView(R.layout.search_view_results);
 
         Intent i = getIntent();
-        user = (User) i.getSerializableExtra("user");
+        Bundle extras = i.getExtras();
+        user = (User) extras.getSerializable("user");
+        db = (DataBase) extras.getSerializable("database");
 
 
         //Creation of the spinners used to display the string array filters.
@@ -84,6 +86,7 @@ public class Main2Activity extends AppCompatActivity {
                 Bundle extras = new Bundle();
                 extras.putSerializable("user", user);
                 extras.putSerializable("course", course);
+                extras.putSerializable("database", db);
                 intent.putExtras(extras);
                 startActivityForResult(intent, 0);
             }
@@ -164,10 +167,11 @@ public class Main2Activity extends AppCompatActivity {
         String year = (Filter2);
         String faculty = (Filter1);
         results_Adapter.clear();
-        filtered_search search_instance = new filtered_search();
+        filtered_search search_instance = new filtered_search(db);
 
-        results_courses = search_instance.QUERY_COURSES_DB(faculty, year, "0");
 
+
+        results_courses = search_instance.QUERY_COURSES_DB(faculty, year);
 
         results_Adapter.addAll(results_courses);
 
@@ -265,14 +269,19 @@ public class Main2Activity extends AppCompatActivity {
     public void onBackPressed() {
         //super.onBackPressed();
         Intent intent = new Intent();
-        intent.putExtra("user", user);
+        Bundle extras = new Bundle();
+        extras.putSerializable("user", user);
+        extras.putSerializable("database", db);
+        intent.putExtras(extras);
         setResult(0, intent);
         finish();
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        user = (User) data.getSerializableExtra("user");
+        Bundle extras = data.getExtras();
+        user = (User) extras.getSerializable("user");
+        db = (DataBase) extras.getSerializable("database");
+        results_Adapter.clear();
     }
-
 }

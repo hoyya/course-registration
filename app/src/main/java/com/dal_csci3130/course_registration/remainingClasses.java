@@ -11,6 +11,7 @@ import java.util.ArrayList;
 public class remainingClasses extends AppCompatActivity {
 
     private User user;
+    private DataBase db;
 
     private ArrayList<Course> courseList = new ArrayList<Course>();
     private ListView results_List;
@@ -24,7 +25,9 @@ public class remainingClasses extends AppCompatActivity {
         setContentView(R.layout.activity_remaining_classes);
 
         Intent i = getIntent();
-        user = (User) i.getSerializableExtra("user");
+        Bundle extras = i.getExtras();
+        user = (User) extras.getSerializable("user");
+        db = (DataBase) extras.getSerializable("database");
         courseList = user.getRemaining();
 
 
@@ -44,9 +47,19 @@ public class remainingClasses extends AppCompatActivity {
     public void onBackPressed() {
         //super.onBackPressed();
         Intent intent = new Intent();
-        intent.putExtra("user", user);
+        Bundle extras = new Bundle();
+        extras.putSerializable("user", user);
+        extras.putSerializable("database", db);
+        intent.putExtras(extras);
         setResult(0, intent);
         finish();
+    }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Bundle extras = data.getExtras();
+        user = (User) extras.getSerializable("user");
+        db = (DataBase) extras.getSerializable("database");
     }
 }
 
