@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class course_details extends AppCompatActivity {
 
@@ -16,6 +17,9 @@ public class course_details extends AppCompatActivity {
     private TextView notice;
     private Course course;
     private User user;
+    private ArrayList<Course> completed;
+    private ArrayList<Course> current;
+    private ArrayList<Course> remaining;
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -28,6 +32,10 @@ public class course_details extends AppCompatActivity {
         user = (User) extras.getSerializable("user");
         course = (Course) extras.getSerializable("course");
 
+        completed = user.getCompleted();
+        current = user.getCurrent();
+        remaining = user.getRemaining();
+
         notice = (TextView) findViewById(R.id.notice);
         tview = (TextView) findViewById(R.id.textView);
         tview.setText(course.getTitle()+course.getYear()+
@@ -38,68 +46,94 @@ public class course_details extends AppCompatActivity {
                 "\nTerm:"+course.getTerm()+
                 "\nProffessor:"+course.getProfessor()+
                 "\nBuilding:"+course.getLocation()+
-                "\nDescription\n"+course.getDescription());
-
-
+                "\nDescription:\n"+course.getDescription()+
+                "\n\nPrereq: "+course.getPrereq());
 
     }
 
     @SuppressLint("SetTextI18n")
     public void addClass(View view) {
 
-        for (int x=0; x<user.getCurrent().size(); x++) {
-            System.out.println("current before = "+user.getCurrent().get(x));
-        }
-        for (int x=0; x<user.getRemaining().size(); x++) {
-            System.out.println("remaining before = "+user.getRemaining().get(x));
-        }
-
-
-
-        ArrayList<Course> completed = user.getCompleted();
-        ArrayList<Course> current = user.getCurrent();
-        ArrayList<Course> remaining = user.getRemaining();
-
         boolean problem = false;
         boolean timeconflict = false;
         Course conflict1;
         Course conflict2;
 
-        for (int x=1; x<current.size();x++) {
-            if (current.get(x).getTime() == course.getTime()) {
-                if (current.get(x).getDays() == course.getDays()) {
-                    //todo: check conflict conditions for edge cases
-                    timeconflict = true;
+        //check if course completed
+        System.out.println("Completed size = "+completed.size());
+
+        for (int x=0; x<completed.size();x++) {
+            System.out.println("in comp loop 1");
+            boolean tmp = course.getFaculty().equals(completed.get(x).getFaculty());
+            System.out.println(course.getFaculty()+" == "+completed.get(x).getFaculty()+" : "+tmp);
+
+            if (course.getFaculty().equals(completed.get(x).getFaculty())) {
+                System.out.println("in comp loop 2");
+                System.out.println(course.getYear()+" == "+completed.get(x).getYear()+" : "+course.getYear() == completed.get(x).getYear());
+
+                if (course.getYear().equals(completed.get(x).getYear())) {
+                    System.out.println("course completed");
+                    notice.setText("Already Completed\n");
+                    problem = true;
+                }
+            }
+            else {
+                notice.setText("");
+            }
+        }
+
+
+        System.out.println("Current size = "+current.size());
+
+        //check if course registered already
+        for (int x = 0; x< current.size(); x++) {
+
+            System.out.println("in reg loop 1");
+            System.out.println(course.getFaculty()+" == "+current.get(x).getFaculty()+" : "+course.getFaculty() == current.get(x).getFaculty());
+
+            if (Objects.equals(course.getFaculty(), current.get(x).getFaculty()) && !problem) {
+
+                System.out.println("in reg loop 2");
+                System.out.println(course.getYear()+" == "+current.get(x).getYear()+" : "+course.getYear() == current.get(x).getYear());
+
+                if (Objects.equals(course.getYear(), current.get(x).getYear())) {
+                    System.out.println("Already signed up\n");
+                    notice.setText(notice.getText()+"Already Registered\n");
+                    problem = true;
                 }
             }
         }
 
-        if (completed.contains(course) || current.contains(course)) {
-            System.out.println("Already completed or signed up\n");
-            notice.setText("Already Completed or Signed up to Course\n");
+        //check if course full
+        if (Integer.parseInt(course.getRem()) < 1 && !problem) {
+            System.out.println("course full");
+            notice.setText(notice.getText()+"Course is full");
             problem = true;
         }
-        else {
-            notice.setText("");
-        }
-        if (timeconflict) {
-            System.out.println("Time conflict between two classes\n");
-            notice.setText(notice.getText()+"Time conflict between two courses");
-            problem = true;
-        }
+
+        //check time conflict
         if (!problem) {
+            for (int x=1; x<current.size();x++) {
+                if (current.get(x).getTime() == course.getTime()) {
+                    if (current.get(x).getDays() == course.getDays()) {
+                        //todo: check conflict conditions for edge cases
+                        System.out.println("Time conflict between two classes\n");
+                        notice.setText(notice.getText()+"Time conflict between two courses");
+                        problem = true;
+
+                    }
+                }
+            }
+        }
+
+        //if problem
+        if (problem == false) {
+            course.setRem(""+(Integer.parseInt(course.getRem())-1));
             notice.setText("");
             current.add(course);
             remaining.remove(course);
             user.setCurrent(current);
             user.setRemaining(remaining);
-
-            for (int x = 0; x < user.getCurrent().size(); x++) {
-                System.out.println("current after = " + user.getCurrent().get(x));
-            }
-            for (int x = 0; x < user.getRemaining().size(); x++) {
-                System.out.println("remaining after = " + user.getRemaining().get(x));
-            }
         }
     }
 
