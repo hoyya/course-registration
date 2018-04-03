@@ -59,20 +59,10 @@ public class course_details extends AppCompatActivity {
         Course conflict1;
         Course conflict2;
 
-        //check if course completed
-        System.out.println("Completed size = "+completed.size());
-
         for (int x=0; x<completed.size();x++) {
-            System.out.println("in comp loop 1");
-            boolean tmp = course.getFaculty().equals(completed.get(x).getFaculty());
-            System.out.println(course.getFaculty()+" == "+completed.get(x).getFaculty()+" : "+tmp);
-
             if (course.getFaculty().equals(completed.get(x).getFaculty())) {
-                System.out.println("in comp loop 2");
-                System.out.println(course.getYear()+" == "+completed.get(x).getYear()+" : "+course.getYear() == completed.get(x).getYear());
-
                 if (course.getYear().equals(completed.get(x).getYear())) {
-                    System.out.println("course completed");
+                    System.out.println("Already Completed");
                     notice.setText("Already Completed\n");
                     problem = true;
                 }
@@ -82,20 +72,9 @@ public class course_details extends AppCompatActivity {
             }
         }
 
-
-        System.out.println("Current size = "+current.size());
-
         //check if course registered already
         for (int x = 0; x< current.size(); x++) {
-
-            System.out.println("in reg loop 1");
-            System.out.println(course.getFaculty()+" == "+current.get(x).getFaculty()+" : "+course.getFaculty() == current.get(x).getFaculty());
-
             if (Objects.equals(course.getFaculty(), current.get(x).getFaculty()) && !problem) {
-
-                System.out.println("in reg loop 2");
-                System.out.println(course.getYear()+" == "+current.get(x).getYear()+" : "+course.getYear() == current.get(x).getYear());
-
                 if (Objects.equals(course.getYear(), current.get(x).getYear())) {
                     System.out.println("Already signed up\n");
                     notice.setText(notice.getText()+"Already Registered\n");
@@ -127,7 +106,7 @@ public class course_details extends AppCompatActivity {
         }
 
         //if problem
-        if (problem == false) {
+        if (!problem) {
             course.setRem(""+(Integer.parseInt(course.getRem())-1));
             notice.setText("");
             current.add(course);
