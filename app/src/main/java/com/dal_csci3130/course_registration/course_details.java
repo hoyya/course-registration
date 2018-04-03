@@ -125,16 +125,19 @@ public class course_details extends AppCompatActivity {
         //if problem
         if (!problem) {
 
+
             System.out.println("rem_before: " + course.getRem());
             course.setRem(""+(Integer.parseInt(course.getRem())-1));
             System.out.println("rem_after: " + course.getRem());
 
-            notice.setText("");
+            notice.setText("Course Successfully Added!");
             current.add(course);
             remaining.remove(course);
             user.setCurrent(current);
             user.setRemaining(remaining);
             db.updateCourse(course);
+
+
         }
     }
 
