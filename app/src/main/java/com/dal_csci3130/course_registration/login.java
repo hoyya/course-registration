@@ -13,6 +13,7 @@ public class login extends Activity {
     private User user;
     private static boolean enabled;
     int attempt_counter = 5;
+    private DataBase db;
 
     public static void setEnabled(boolean enabled) {
         login.enabled = enabled;
@@ -41,8 +42,9 @@ public class login extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        final DataBase db = new DataBase();
+        db = new DataBase();
         db.initialize();
+        System.out.println("size of course list after init: " + db.getCourselist().size());
 
         final EditText username = (EditText) findViewById(R.id.userName);
         final EditText password = (EditText) findViewById(R.id.password);
@@ -73,8 +75,11 @@ public class login extends Activity {
                     if (username.getText().toString().equals(db.getUserlist().get(i).getUsername()) && password.getText().toString().equals(db.getUserlist().get(i).getPassword())) {
                         user = db.getUserlist().get(i);
                         Intent intent = new Intent(login.this, profile.class);
-                        intent.putExtra("user", user);
-                        startActivity(intent);
+                        Bundle extras = new Bundle();
+                        extras.putSerializable("user", user);
+                        extras.putSerializable("database", db);
+                        intent.putExtras(extras);
+                        startActivityForResult(intent,0);
                     } else {
 
                         Toast.makeText(login.this, "User and Password is not correct",
@@ -90,4 +95,24 @@ public class login extends Activity {
             }
         });
     }
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+        Intent intent = new Intent();
+        Bundle extras = new Bundle();
+        extras.putSerializable("user", user);
+        extras.putSerializable("database", db);
+        intent.putExtras(extras);
+        setResult(0, intent);
+        finish();
+    }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Bundle extras = data.getExtras();
+        user = (User) extras.getSerializable("user");
+        db = (DataBase) extras.getSerializable("database");
+    }
 }
+
+

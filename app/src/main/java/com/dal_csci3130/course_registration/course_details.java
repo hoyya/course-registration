@@ -20,6 +20,7 @@ public class course_details extends AppCompatActivity {
     private ArrayList<Course> completed;
     private ArrayList<Course> current;
     private ArrayList<Course> remaining;
+    private DataBase db;
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -31,6 +32,7 @@ public class course_details extends AppCompatActivity {
         Bundle extras = i.getExtras();
         user = (User) extras.getSerializable("user");
         course = (Course) extras.getSerializable("course");
+        db = (DataBase) extras.getSerializable("database");
 
         completed = user.getCompleted();
         current = user.getCurrent();
@@ -107,21 +109,35 @@ public class course_details extends AppCompatActivity {
 
         //if problem
         if (!problem) {
+
+            System.out.println("rem_before: " + course.getRem());
             course.setRem(""+(Integer.parseInt(course.getRem())-1));
+            System.out.println("rem_after: " + course.getRem());
+
             notice.setText("");
             current.add(course);
             remaining.remove(course);
             user.setCurrent(current);
             user.setRemaining(remaining);
+            db.updateCourse(course);
         }
     }
 
-    @Override
     public void onBackPressed() {
         //super.onBackPressed();
         Intent intent = new Intent();
-        intent.putExtra("user", user);
+        Bundle extras = new Bundle();
+        extras.putSerializable("user", user);
+        extras.putSerializable("database", db);
+        intent.putExtras(extras);
         setResult(0, intent);
         finish();
+    }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Bundle extras = data.getExtras();
+        user = (User) extras.getSerializable("user");
+        db = (DataBase) extras.getSerializable("database");
     }
 }

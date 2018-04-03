@@ -2,6 +2,7 @@ package com.dal_csci3130.course_registration;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -11,6 +12,7 @@ import java.util.ArrayList;
 public class compltedCourses extends AppCompatActivity {
 
     private User user;
+    private DataBase db;
 
     private ArrayList<Course> courseList = new ArrayList<Course>();
     private ListView results_List;
@@ -24,7 +26,10 @@ public class compltedCourses extends AppCompatActivity {
         setContentView(R.layout.activity_complted_courses);
 
         Intent i = getIntent();
-        user = (User) i.getSerializableExtra("user");
+        Bundle extras = i.getExtras();
+        user = (User) extras.getSerializable("user");
+        db = (DataBase) extras.getSerializable("database");
+
         courseList = user.getCompleted();
 
 
@@ -44,9 +49,19 @@ public class compltedCourses extends AppCompatActivity {
     public void onBackPressed() {
         //super.onBackPressed();
         Intent intent = new Intent();
-        intent.putExtra("user", user);
+        Bundle extras = new Bundle();
+        extras.putSerializable("user", user);
+        extras.putSerializable("database", db);
+        intent.putExtras(extras);
         setResult(0, intent);
         finish();
+    }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Bundle extras = data.getExtras();
+        user = (User) extras.getSerializable("user");
+        db = (DataBase) extras.getSerializable("database");
     }
 }
 
