@@ -8,6 +8,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 public class profile extends AppCompatActivity {
 
@@ -16,6 +17,8 @@ public class profile extends AppCompatActivity {
     public String Minor;
     public User user;
     public DataBase db;
+
+    TextView welcome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +31,12 @@ public class profile extends AppCompatActivity {
         db = (DataBase) extras.getSerializable("database");
 
         System.out.println("Size of courselist in profile_view: " + db.getCourselist().size());
+
+
+        //Displays the current users name in a welcome message
+        welcome = findViewById(R.id.welcomeMessage);
+
+        welcome.setText("Welcome, " + user.getFirst_name() + " " + user.getLast_name());
 
 
         if (user != null) {
