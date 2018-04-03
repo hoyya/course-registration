@@ -4,6 +4,7 @@ package com.dal_csci3130.course_registration;
 import com.google.firebase.database.Exclude;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -31,6 +32,8 @@ public class Course implements Serializable {
     private String time;
     private String title;
     private String year;
+    private String prereqf;
+    private ArrayList<Integer> rating;
 
 
     public Course() {
@@ -61,12 +64,14 @@ public class Course implements Serializable {
      * @param time
      * @param title
      * @param year
+     * @param prereqf
+     * @rating rating
      */
     public Course(String WL_Act, String WL_Cap, String WL_Rem, String act,
                   String cap, String cred, String days, String description, String enddate,
                   String faculty, String location, String prereq, String professor,
                   String rem, String section, String startdate, String subject, String term,
-                  String time, String title, String year) {
+                  String time, String title, String year, String prereqf, ArrayList<Integer> rating) {
         this.WL_Act = WL_Act;
         this.WL_Cap = WL_Cap;
         this.WL_Rem = WL_Rem;
@@ -88,6 +93,8 @@ public class Course implements Serializable {
         this.time = time;
         this.title = title;
         this.year = year;
+        this.prereqf = prereqf;
+        this.rating = rating;
     }
 
 
@@ -133,6 +140,8 @@ public class Course implements Serializable {
         result.put("time", time);
         result.put("title", title);
         result.put("year", year);
+        result.put("prereqf", prereqf);
+        result.put("rating", rating);
 
         return result;
     }
@@ -178,6 +187,8 @@ public class Course implements Serializable {
         return prereq;
     }
 
+    public String getPrereqf() { return prereqf; }
+
     public String getLocation() {
         return location;
     }
@@ -222,6 +233,8 @@ public class Course implements Serializable {
         return this.WL_Act;
     }
 
+    public ArrayList<Integer> getRating() { return this.rating; }
+
     public void setWL_Cap(String WL_Cap) {
         this.WL_Cap = WL_Cap;
     }
@@ -242,6 +255,8 @@ public class Course implements Serializable {
     public void setYear(String year) {
         this.year = year;
     }
+
+    public void setRating(ArrayList<Integer> rating) {this.rating = rating;}
 
     public void setTitle(String title) {
 
@@ -286,6 +301,10 @@ public class Course implements Serializable {
     public void setPrereq(String prereq) {
 
         this.prereq = prereq;
+    }
+
+    public void setPrereqf(String prereqf) {
+        this.prereqf = prereqf;
     }
 
     public void setLocation(String location) {

@@ -18,6 +18,7 @@ public class User implements Serializable {
     private String last_name;
     private String password;
     private String username;
+    private String notices;
 
 
     public User() {
@@ -46,6 +47,7 @@ public class User implements Serializable {
         this.last_name = last_name;
         this.password = password;
         this.username = username;
+        this.notices = "";
     }
     //Getter and setter methods for variable
     public ArrayList<Course> getCompleted() {
@@ -112,6 +114,11 @@ public class User implements Serializable {
         this.username = username;
     }
 
+    public String getNotices() { return notices; }
+
+    public void setNotices(String notices) {
+        this.notices = notices;
+    }
 
     boolean exists() {
         return true;
@@ -137,6 +144,7 @@ public class User implements Serializable {
         result.put("last_name", last_name);
         result.put("password", password);
         result.put("username", username);
+        result.put("notices", notices);
 
         return result;
     }
