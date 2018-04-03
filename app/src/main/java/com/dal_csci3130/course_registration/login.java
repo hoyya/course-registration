@@ -19,23 +19,6 @@ public class login extends Activity {
     }
 
 
-
-    //TODO REFACTOR validUser so that it is more coherent (just checks the uname/pass)
-    //the counter stuff should be implemented in a separate method
-
-    public boolean validUser(String uName, String pass) {
-
-        boolean flag;
-
-        if(uName.equals("admin") && pass.equals("admin"))   {
-            flag = true;
-        }   else  {
-            flag = false;
-        }
-
-        return flag;
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,22 +46,9 @@ public class login extends Activity {
             @Override
             public void onClick(View view) {
 
-                //validUser(username.getText().toString(), password.getText().toString());
+                //function to validate user login credentials
+                validUser(username.getText().toString(), password.getText().toString());
 
-
-
-                for (int i=0; i<db.getUserlist().size(); i++) {
-                    if (username.getText().toString().equals(db.getUserlist().get(i).getUsername()) && password.getText().toString().equals(db.getUserlist().get(i).getPassword())) {
-                        user = db.getUserlist().get(i);
-                        Intent intent = new Intent(login.this, profile.class);
-                        Bundle extras = new Bundle();
-                        extras.putSerializable("user", user);
-                        extras.putSerializable("database", db);
-                        intent.putExtras(extras);
-                        startActivityForResult(intent,0);
-                    }
-
-                }
             }
         });
     }
@@ -99,6 +69,25 @@ public class login extends Activity {
         Bundle extras = data.getExtras();
         user = (User) extras.getSerializable("user");
         db = (DataBase) extras.getSerializable("database");
+    }
+
+    public void validUser(String username, String password) {
+
+        for (int i=0; i<db.getUserlist().size(); i++) {
+            if (username.equals(db.getUserlist().get(i).getUsername()) && password.equals(db.getUserlist().get(i).getPassword())) {
+                user = db.getUserlist().get(i);
+                Intent intent = new Intent(login.this, profile.class);
+                Bundle extras = new Bundle();
+                extras.putSerializable("user", user);
+                extras.putSerializable("database", db);
+                intent.putExtras(extras);
+                startActivityForResult(intent,0);
+            } else {
+                Toast.makeText(login.this, "Invalid Credentials!",
+                        Toast.LENGTH_LONG).show();
+            }
+
+        }
     }
 }
 
