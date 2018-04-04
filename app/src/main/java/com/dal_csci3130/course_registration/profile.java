@@ -32,14 +32,14 @@ public class profile extends AppCompatActivity {
         welcome = findViewById(R.id.welcomeMessage);
         welcome.setText("Welcome, " + user.getFirst_name() + " " + user.getLast_name());
 
-        Button classSearch = (Button) findViewById(R.id.classSearch);
-        Button currentCourses = (Button) findViewById(R.id.currentCourses);
-        Button remainingCourses = (Button) findViewById(R.id.remainingCourses);
-        Button completedCourses = (Button) findViewById(R.id.completedCourses);
+        Button classSearch = findViewById(R.id.classSearch);
+        Button currentCourses = findViewById(R.id.currentCourses);
+        Button remainingCourses = findViewById(R.id.remainingCourses);
+        Button completedCourses = findViewById(R.id.completedCourses);
 
-        Spinner facultySpinner = (Spinner) findViewById(R.id.facultyspinner);
-        Spinner majorSpinner = (Spinner) findViewById(R.id.majorspinner);
-        Spinner minorSpinner = (Spinner) findViewById(R.id.minorspinner);
+        Spinner facultySpinner = findViewById(R.id.facultyspinner);
+        Spinner majorSpinner = findViewById(R.id.majorspinner);
+        Spinner minorSpinner = findViewById(R.id.minorspinner);
 
         ArrayAdapter<CharSequence> facultyAdapter = ArrayAdapter.createFromResource(this, R.array.faculty_array2, android.R.layout.simple_spinner_item);
         ArrayAdapter<CharSequence> majorAdapter = ArrayAdapter.createFromResource(this, R.array.major_array, android.R.layout.simple_spinner_item);

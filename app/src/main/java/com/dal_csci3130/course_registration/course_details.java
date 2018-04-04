@@ -12,7 +12,7 @@ import java.util.Objects;
 
 public class course_details extends AppCompatActivity {
 
-    private TextView tview, notice;
+    private TextView notice;
     private Course course;
     private User user;
     private ArrayList<Course> completed, current, remaining;
@@ -44,7 +44,7 @@ public class course_details extends AppCompatActivity {
         }
         ;
         notice = (TextView) findViewById(R.id.notice);
-        tview = (TextView) findViewById(R.id.textView);
+        TextView tview = (TextView) findViewById(R.id.textView);
         tview.setText(course.getTitle() + course.getYear() +
                 "\nRemaining:" + course.getRem() +
                 "\nCapacity:" + course.getCap() +
@@ -95,8 +95,8 @@ public class course_details extends AppCompatActivity {
         //check time conflict
         if (!problem) {
             for (int x = 1; x < current.size(); x++) {
-                if (current.get(x).getTime() == course.getTime()) {
-                    if (current.get(x).getDays() == course.getDays()) {
+                if (Objects.equals(current.get(x).getTime(), course.getTime())) {
+                    if (Objects.equals(current.get(x).getDays(), course.getDays())) {
                         //todo: check conflict conditions for edge cases
                         System.out.println("Time conflict between two classes\n");
                         notice.setText(notice.getText() + "Time conflict between two courses");

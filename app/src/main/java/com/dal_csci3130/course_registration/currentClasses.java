@@ -10,8 +10,6 @@ import java.util.ArrayList;
 public class currentClasses extends AppCompatActivity {
 
     private User user;
-    private ArrayList<Course> courseList = new ArrayList<Course>();
-    private ListView results_List;
     private DataBase db;
     public ArrayAdapter<Course> results_Adapter;
 
@@ -25,12 +23,12 @@ public class currentClasses extends AppCompatActivity {
         user = (User) extras.getSerializable("user");
         db = (DataBase) extras.getSerializable("database");
 
-        courseList = user.getCurrent();
+        ArrayList<Course> courseList = user.getCurrent();
 
         //drop_Button = this.findViewById(R.id.dropButton);
         //Gets filter conditions
-        results_List = this.findViewById(R.id.resultsList);
-        results_Adapter = new ArrayAdapter<Course>(this, android.R.layout.simple_list_item_1, courseList);
+        ListView results_List = this.findViewById(R.id.resultsList);
+        results_Adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, courseList);
         results_List.setAdapter(results_Adapter);
     }
 

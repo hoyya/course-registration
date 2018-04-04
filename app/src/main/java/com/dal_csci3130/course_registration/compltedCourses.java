@@ -2,7 +2,6 @@ package com.dal_csci3130.course_registration;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -13,8 +12,6 @@ public class compltedCourses extends AppCompatActivity {
 
     private User user;
     private DataBase db;
-    private ArrayList<Course> courseList = new ArrayList<Course>();
-    private ListView results_List;
     public ArrayAdapter<Course> results_Adapter;
 
     @Override
@@ -27,12 +24,12 @@ public class compltedCourses extends AppCompatActivity {
         user = (User) extras.getSerializable("user");
         db = (DataBase) extras.getSerializable("database");
 
-        courseList = user.getCompleted();
+        ArrayList<Course> courseList = user.getCompleted();
 
         //drop_Button = this.findViewById(R.id.dropButton);
         //Gets filter conditions
-        results_List = this.findViewById(R.id.resultsList);
-        results_Adapter = new ArrayAdapter<Course>(this, android.R.layout.simple_list_item_1, courseList);
+        ListView results_List = this.findViewById(R.id.resultsList);
+        results_Adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, courseList);
         results_List.setAdapter(results_Adapter);
     }
 

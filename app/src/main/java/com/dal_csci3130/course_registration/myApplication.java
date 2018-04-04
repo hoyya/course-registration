@@ -15,10 +15,10 @@ public class myApplication extends Application {
     private static User user;
 
     public User getUser() {
-        return this.user;
+        return user;
     }
 
     public void setUser(User user) {
-        this.user = user;
+        myApplication.user = user;
     }
 }

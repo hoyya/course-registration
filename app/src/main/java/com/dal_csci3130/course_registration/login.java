@@ -28,10 +28,10 @@ public class login extends Activity {
         db.initialize();
         System.out.println("size of course list after init: " + db.getCourselist().size());
 
-        final EditText username = (EditText) findViewById(R.id.userName);
-        final EditText password = (EditText) findViewById(R.id.password);
-        Button register = (Button) findViewById(R.id.register);
-        final Button login = (Button) findViewById(R.id.login);
+        final EditText username = findViewById(R.id.userName);
+        final EditText password = findViewById(R.id.password);
+        Button register = findViewById(R.id.register);
+        final Button login = findViewById(R.id.login);
 
         register.setOnClickListener(new View.OnClickListener() {
             @Override

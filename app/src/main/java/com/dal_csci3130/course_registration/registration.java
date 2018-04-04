@@ -17,15 +17,15 @@ public class registration extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
-        final EditText password = (EditText) findViewById(R.id.password);
-        final EditText username = (EditText) findViewById(R.id.userName);
-        final EditText firstName = (EditText) findViewById(R.id.firstName);
-        final EditText lastName = (EditText) findViewById(R.id.lastName);
-        final EditText email = (EditText) findViewById(R.id.email);
-        Button register = (Button) findViewById(R.id.register);
-        Button cancel = (Button) findViewById(R.id.cancel);
-        final TextView passConfirm = (TextView) findViewById(R.id.passConfirm);
-        final TextView emailConfirm = (TextView) findViewById(R.id.emailConfirm);
+        final EditText password = findViewById(R.id.password);
+        final EditText username = findViewById(R.id.userName);
+        final EditText firstName = findViewById(R.id.firstName);
+        final EditText lastName = findViewById(R.id.lastName);
+        final EditText email = findViewById(R.id.email);
+        Button register = findViewById(R.id.register);
+        Button cancel = findViewById(R.id.cancel);
+        final TextView passConfirm = findViewById(R.id.passConfirm);
+        final TextView emailConfirm = findViewById(R.id.emailConfirm);
 
         register.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,7 +49,7 @@ public class registration extends AppCompatActivity {
     public boolean validPassword(String pass) {
 
         boolean flag;
-        final TextView passConfirm = (TextView) findViewById(R.id.passConfirm);
+        final TextView passConfirm = findViewById(R.id.passConfirm);
 
         if (!checkPassword(pass)) {
             passConfirm.setText("Password must not be password");
@@ -86,11 +86,7 @@ public class registration extends AppCompatActivity {
 
         //since case insensitve, make lowercase to test
 
-        if (pass != null && pass.toLowerCase().equals("password")) {
-            flag = false;
-        } else {
-            flag = true;
-        }
+        flag = !(pass != null && pass.toLowerCase().equals("password"));
         return flag;
     }
 
@@ -99,11 +95,7 @@ public class registration extends AppCompatActivity {
         boolean flag;
 
         //ensure greater or equal to 8
-        if (pass != null && pass.length() >= 8) {
-            flag = true;
-        } else {
-            flag = false;
-        }
+        flag = pass != null && pass.length() >= 8;
         return flag;
     }
 
@@ -119,11 +111,7 @@ public class registration extends AppCompatActivity {
         boolean check = matcher.find();
 
         //if input matches the pattern then passes rule
-        if (check == true) {
-            flag = true;
-        } else {
-            flag = false;
-        }
+        flag = check == true;
         return flag;
     }
 
@@ -137,11 +125,7 @@ public class registration extends AppCompatActivity {
         boolean check = matcher.find();
 
         //test for input containing number pattern
-        if (check == true) {
-            flag = true;
-        } else {
-            flag = false;
-        }
+        flag = check == true;
         return flag;
     }
 
@@ -155,11 +139,7 @@ public class registration extends AppCompatActivity {
         boolean check = matcher.find();
 
         //check for input in uppercase pattern
-        if (check == true) {
-            flag = true;
-        } else {
-            flag = false;
-        }
+        flag = check == true;
         return flag;
     }
 }
