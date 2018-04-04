@@ -5,13 +5,11 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-
 import java.util.ArrayList;
 
 public class currentClasses extends AppCompatActivity {
 
     private User user;
-
     private ArrayList<Course> courseList = new ArrayList<Course>();
     private ListView results_List;
     private DataBase db;
