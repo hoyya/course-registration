@@ -32,7 +32,7 @@ public class filtered_search {
     public void UPDATE_COURSE_DB(Course course) {
 
 
-        for (int i = 0; i<db.getCourselist().size(); i++) {
+        for (int i = 0; i < db.getCourselist().size(); i++) {
             if (db.getCourselist().get(i).getFaculty() == course.getFaculty() && db.getCourselist().get(i).getYear() == course.getYear()) {
                 db.getCourselist().remove(i);
                 db.getCourselist().add(course);
@@ -46,7 +46,7 @@ public class filtered_search {
      */
     public void UPDATE_USER_DB(User user) {
 
-        for (int i = 0; i<db.getCourselist().size(); i++) {
+        for (int i = 0; i < db.getCourselist().size(); i++) {
             if (db.getUserlist().get(i).getUsername() == user.getUsername()) {
                 db.getUserlist().remove(i);
                 db.getUserlist().add(user);
@@ -58,14 +58,14 @@ public class filtered_search {
         filtered_search update = new filtered_search();
         ArrayList<Course> courselist = update.QUERY_COURSES_DB(term, faculty, year, open_spots);
      */
-    public ArrayList<Course> QUERY_COURSES_DB( String m_faculty, String year, String term) {
+    public ArrayList<Course> QUERY_COURSES_DB(String m_faculty, String year, String term) {
 
 
         ArrayList<Course> results = new ArrayList<Course>();
         //String results = "";
         //String results = db.getCourselist().get(0).getFaculty()+db.getCourselist().get(0).getYear()+" "+db.getCourselist().get(0).getRem()+" seats remaining";
 
-        for (int i=0; i<db.getCourselist().size(); i++) {
+        for (int i = 0; i < db.getCourselist().size(); i++) {
             if (db.getCourselist().get(i).getFaculty() == m_faculty || m_faculty == "ANY") {
                 if ((db.getCourselist().get(i).getYear().charAt(0) == year.charAt(0)) || (year == "ANY")) {
                     if (true) {
@@ -88,7 +88,7 @@ public class filtered_search {
 
         ArrayList<Course> results = new ArrayList<Course>();
         System.out.println("Size of courselist while querying: " + db.getCourselist().size());
-        for (int i=0; i<db.getCourselist().size(); i++) {
+        for (int i = 0; i < db.getCourselist().size(); i++) {
             if (Objects.equals(db.getCourselist().get(i).getFaculty(), m_faculty) || Objects.equals(m_faculty, "ANY")) {
                 if ((db.getCourselist().get(i).getYear().charAt(0) == year.charAt(0)) || (Objects.equals(year, "ANY"))) {
                     results.add(db.getCourselist().get(i));
@@ -108,7 +108,7 @@ public class filtered_search {
 
         ArrayList<User> results = new ArrayList<User>();
 
-        for (int i=0; i<db.getUserlist().size(); i++) {
+        for (int i = 0; i < db.getUserlist().size(); i++) {
             if (db.getUserlist().get(i).getUsername() == username) {
                 if (db.getUserlist().get(i).getPassword() == password) {
                     return db.getUserlist().get(i);
@@ -135,13 +135,29 @@ public class filtered_search {
     */
 
     /* GETTERS FOR FILTERED_SEARCH. */
-    public String getm_faculty(){ return this.m_faculty;}
-    public int getm_year(){return this.m_year;}
-    public int getm_open_spots(){return this.m_open_spots;}
+    public String getm_faculty() {
+        return this.m_faculty;
+    }
+
+    public int getm_year() {
+        return this.m_year;
+    }
+
+    public int getm_open_spots() {
+        return this.m_open_spots;
+    }
 
     /* SETTERS FOR FILTERED_SEARCH */
-    public void setm_faculty(String set_fac){ this.m_faculty = set_fac;}
-    public void setm_year(int set_year){this.m_year = set_year;}
-    public void setm_open_spots(int set_open_spots){this.m_open_spots = set_open_spots;}
+    public void setm_faculty(String set_fac) {
+        this.m_faculty = set_fac;
+    }
+
+    public void setm_year(int set_year) {
+        this.m_year = set_year;
+    }
+
+    public void setm_open_spots(int set_open_spots) {
+        this.m_open_spots = set_open_spots;
+    }
 
 }
