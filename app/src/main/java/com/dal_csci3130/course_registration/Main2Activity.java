@@ -23,18 +23,21 @@ public class Main2Activity extends AppCompatActivity {
 
     //myApplication myapp = (myApplication)getApplication();
     //User user = myapp.getUser();
-    DataBase db;
+
     public String Filter1, Filter2;
     public User user;
     public int year, seats;
+    public ArrayAdapter results_Adapter;
+    public ArrayList<Course> results_courses;
+    
     ArrayList<Course> courseList = new ArrayList<Course>();
     ArrayList<Course> database_results = new ArrayList<Course>();
-    public ArrayList<Course> results_courses;
+
     TextView text2, text3, text4, text5;
     ListView results_List;
     Button Apply_Button;
+    DataBase db;
     Course course;
-    public ArrayAdapter results_Adapter;
 
 
     @Override
