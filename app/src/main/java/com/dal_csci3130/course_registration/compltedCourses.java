@@ -17,7 +17,6 @@ public class compltedCourses extends AppCompatActivity {
     private ListView results_List;
     public ArrayAdapter<Course> results_Adapter;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +48,13 @@ public class compltedCourses extends AppCompatActivity {
         finish();
     }
 
+    /**
+     *
+     *
+     * @param requestCode
+     * @param resultCode
+     * @param data
+     */
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         Bundle extras = data.getExtras();
