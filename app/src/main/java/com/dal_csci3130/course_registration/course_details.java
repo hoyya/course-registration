@@ -22,8 +22,11 @@ public class course_details extends AppCompatActivity {
     private DataBase db;
     private int rating;
 
+
+
     @SuppressLint("SetTextI18n")
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course_details);
@@ -140,5 +143,14 @@ public class course_details extends AppCompatActivity {
         Bundle extras = data.getExtras();
         user = (User) extras.getSerializable("user");
         db = (DataBase) extras.getSerializable("database");
+    }
+
+    //Getter and setter methods
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
     }
 }
