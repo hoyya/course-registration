@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Adapter;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -15,7 +17,8 @@ public class rateCourse extends AppCompatActivity {
     private User user;
     private DataBase db;
     private int rating;
-
+    private Spinner spinner;
+    private Adapter adapter;
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -30,6 +33,8 @@ public class rateCourse extends AppCompatActivity {
         course = (Course) extras.getSerializable("course");
         db = (DataBase) extras.getSerializable("database");
         rating = 0;
+
+        //todo: add spinner
 
         int max = 0;
         if (course.getRating() != null) {
@@ -61,7 +66,7 @@ public class rateCourse extends AppCompatActivity {
      * @param view
      */
     public void addRating(View view) {
-        //todo: need radio buton of rating, and limit a user to one rating per class
+        //todo: grab rating from spinner
         rating = 8;
         ArrayList<Integer> ratings = course.getRating();
         ratings.add(rating);
