@@ -29,7 +29,7 @@ public class Main2Activity extends AppCompatActivity {
     public int year, seats;
     public ArrayAdapter results_Adapter;
     public ArrayList<Course> results_courses;
-    
+
     ArrayList<Course> courseList = new ArrayList<Course>();
     ArrayList<Course> database_results = new ArrayList<Course>();
 

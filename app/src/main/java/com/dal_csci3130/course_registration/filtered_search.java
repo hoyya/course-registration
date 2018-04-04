@@ -6,9 +6,10 @@ import java.util.Objects;
 public class filtered_search {
 
     private String m_faculty;
-    private int m_year;
-    private int m_open_spots;
+    private int m_year, m_open_spots;
+    ;
     private DataBase db;
+
     /*
      This method will make an API call to the database.
      We need an onclick action in the UI to trigger this method.
