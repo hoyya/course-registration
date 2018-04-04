@@ -35,19 +35,29 @@ public class DataBase implements Serializable {
 		l4.add(5);
 		l4.add(3);
 
-		//Computer Science and Math Courses
-		Course course1 = new Course("0","20","20","91","115","3.000","TR","Implementing Agile Workstyle as a Team","04/06/2018","CSCI","Psychology building","{CSCI2110 : C|CSCI2111 : C}","Juliano Franz","24","01","01/08/2018","CSCI","Winter","14:35-15:55","Software Engineering","3130", "CSCI4116: C", l1);
-		Course course2 = new Course("0","20","20","91","100","3.000","MWF","Introduction to Cryptography","04/06/2018","CSCI","LSC","{CSCI2110 : C|CSCI2111 : C}","Peter Selinger","9","01","01/08/2018","CSCI","Winter","14:35-15:25","Cryptography","4116", "", l2);
-		Course course3 = new Course("15","20","5","95","95","3.000","TR","Operating systems","04/06/2018","CSCI","Psychology building","{CSCI2110 : C|CSCI2111 : C}","Alex Brodsky","0","01","01/08/2018","CSCI","Winter","13:05-14:30","Operating Systems","3120", "CSCI4116: C", l3);
-		Course course4 = new Course("15","20","5","95","95","3.000","MTW","UI Design","12/12/2017","CSCI","LSC Building","{CSCI2110 : C|CSCI2111 : C}","Math Teacher","44","01","06/08/2017","CSCI","Fall","8:30-9:55","UI Design","3160", "", l4);
-		Course course5 = new Course("15","20","5","95","95","3.000","MTW","Matrices","12/12/2017","MATH","LSC Building","{MATH2110 : C|MATH2111 : C}","Math Teacher","5","01","06/08/2017","CSCI","Fall","8:30-9:55","Matrices","2210", "", null);
-		Course course6 = new Course("15","20","5","95","95","3.000","MTW","Equations","12/12/2017","MATH","LSC Building","{MATH2110 : C|MATH2111 : C}","Math Teacher","0","01","06/08/2017","CSCI","Fall","8:30-9:55","Equations","2211", "", null);
-		Course course7 = new Course("15","20","5","95","95","3.000","MTW","Graphs","12/12/2017","MATH","LSC Building","{MATH2110 : C|MATH2111 : C}","Math Teacher","0","01","06/08/2017","CSCI","Fall","8:30-9:55","Graphs","2212", "", null);
-		Course course8 = new Course("15","20","5","95","95","3.000","MTW","Algebra","12/12/2017","MATH","LSC Building","{MATH2110 : C|MATH2111 : C}","Math Teacher","11","01","06/08/2017","CSCI","Fall","8:30-9:55","Algebra","2213", "", null);
+		//Computer Science
+		Course course1 = new Course("0","20","20","91","115","3.000","TR","Implementing Agile Workstyle as a Team","04/06/2018","CSCI","Psychology building","{CSCI2110 : C|CSCI2111 : C}","Juliano Franz","24","01","01/09/2018","CSCI","Winter","14:35-15:55","Software Engineering","3130", "CSCI4116: C", l1);
+		Course course2 = new Course("0","20","20","91","100","3.000","MWF","Introduction to Cryptography","04/06/2018","CSCI","LSC","{CSCI2110 : C|CSCI2111 : C}","Peter Selinger","9","01","01/09/2018","CSCI","Winter","14:35-15:25","Cryptography","4116", "", l2);
+		Course course3 = new Course("15","20","5","95","95","3.000","TR","Operating systems","04/06/2018","CSCI","Psychology building","{CSCI2110 : C|CSCI2111 : C}","Alex Brodsky","0","01","01/09/2018","CSCI","Winter","13:05-14:30","Operating Systems","3120", "CSCI4116: C", l3);
+		Course course4 = new Course("15","20","5","95","95","3.000","MTW","UI Design","12/12/2017","CSCI","LSC Building","{CSCI2110 : C|CSCI2111 : C}","Math Teacher","44","01","06/09/2017","CSCI","Fall","8:30-9:55","UI Design","3160", "", l4);
+		
+		//Math 
+		Course course5 = new Course("15","20","5","95","95","3.000","MTW","Matrices","12/12/2017","MATH","LSC Building","{MATH2110 : C|MATH2111 : C}","Math Teacher","5","01","06/09/2017","CSCI","Fall","8:30-9:55","Matrices","2210", "", null);
+		Course course6 = new Course("15","20","5","95","95","3.000","MTW","Equations","12/12/2017","MATH","LSC Building","{MATH2110 : C|MATH2111 : C}","Math Teacher","0","01","06/09/2017","CSCI","Fall","8:30-9:55","Equations","2211", "", null);
+		Course course7 = new Course("15","20","5","95","95","3.000","MTW","Graphs","12/12/2017","MATH","LSC Building","{MATH2110 : C|MATH2111 : C}","Math Teacher","0","01","06/09/2017","CSCI","Fall","8:30-9:55","Graphs","2212", "", null);
+		Course course8 = new Course("15","20","5","95","95","3.000","MTW","Algebra","12/12/2017","MATH","LSC Building","{MATH2110 : C|MATH2111 : C}","Math Teacher","0","01","06/09/2017","CSCI","Fall","8:30-9:55","Algebra","2213", "", null);
 
-		//TODO: POPULATE DATABASE
-        //Management and Political Science
-        //Course course9 = new Course("15","20","5","95","95","3.000","MTW","Algebra","12/12/2017","MATH","LSC Building","{MATH2110 : C|MATH2111 : C}","Math Teacher","11","01","06/08/2017","CSCI","fall","8:30-9:55","Algebra","2213", "", null);
+		//Management
+        	Course course9 = new Course("0","20","20","85","95","3.000","MTW","Managing","12/12/2017","MGMT","Rowe Building","","Management Teacher","10","01","06/09/2017","MGMT","Fall","8:30-9:55","Managing Teams","1000", "", null);
+		Course course10 = new Course("0","20","20","85","95","3.000","MTF","Managing","18/04/2017","MGMT","Rowe Building","","Management Teacher","10","01","07/01/2017","MGMT","Winter","8:30-9:55","Managing Teams II","1001", "", null);
+		
+		//Political Science
+		Course course11 = new Course("0","20","20","85","95","3.000","MTW","International","12/12/2017","POLI","LSC Building","","Science Teacher","10","01","06/09/2017","POLI","Fall","10:30-13:55","Global Teams","1350", "", null);
+		Course course12 = new Course("0","20","20","85","95","3.000","TR","Local","12/12/2017","POLI","LSC Building","","Poli Teacher","10","01","06/09/2017","POLI","Fall","18:30-19:55","Local Teams","1450", "", null);
+		
+		//Biologoy
+		Course course13 = new Course("0","20","20","85","95","3.000","TRF","Stem","12/12/2017","BIOL","LSC Building","","Science Teacher","10","01","06/09/2017","BIOL","Fall","18:30-19:55","Stem Research","1150", "", null);
+
 		courselist.add(course1);
 		courselist.add(course2);
 		courselist.add(course3);
@@ -56,7 +66,11 @@ public class DataBase implements Serializable {
 		courselist.add(course6);
 		courselist.add(course7);
 		courselist.add(course8);
-
+		courselist.add(course9);
+		courselist.add(course10);
+		courselist.add(course11);
+		courselist.add(course12);
+		
 		ArrayList<Course> current = new ArrayList<>();
 		current.add(course1);
 		current.add(course3);
@@ -69,9 +83,11 @@ public class DataBase implements Serializable {
 		remaining.add(course1);
 		remaining.add(course2);
 		remaining.add(course3);
+		remaining.add(course9);
+		remaining.add(course12);
 
 		// email, String first_name, String completed, String current, String remaining, String last_name, String password, String username
-		User user1 = new User("admin@dal.ca", "John", completed, current, remaining, "Doe", "admin", "admin");
+		User user1 = new User("admin@dal.ca", "John", completed, current, remaining, "Doe", "admin", "admin", "Computer Science", "Mathematics");
 
 
 		ArrayList<Course> current2 = new ArrayList<>();
@@ -85,8 +101,10 @@ public class DataBase implements Serializable {
 		ArrayList<Course> remaining2 = new ArrayList<>();
 		remaining2.add(course2);
 		remaining2.add(course8);
+		remaining2.add(course10);
+		remaining2.add(course11);
 
-		User user2 = new User("lolipop@dal.ca","Luke",completed2,current2,remaining2,"Duke","adri@tIk","B00878787");
+		User user2 = new User("lolipop@dal.ca","Luke",completed2,current2,remaining2,"Duke","adri@tIk","B00878787", "Mathematics", "Political Science");
 
 		userlist.add(user1);
 		userlist.add(user2);

@@ -32,7 +32,11 @@
         <activity android:name=".currentClasses" />
         <activity android:name=".remainingCourses" />
         <activity android:name=".remainingClasses" />
-        <activity android:name=".course_details"></activity>
+        <activity android:name=".course_details" />
+        <activity
+            android:name=".rateCourse"
+            android:label="@string/title_activity_rate_course"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

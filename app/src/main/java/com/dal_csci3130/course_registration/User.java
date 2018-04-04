@@ -10,7 +10,7 @@ import java.util.Map;
 public class User implements Serializable {
 
     //Instance variables
-    private String email, first_name, last_name, password, username, notices;
+    private String email, first_name, last_name, password, username, notices, major, minor;
     private ArrayList<Course> completed, current, remaining;
 
     public User() {
@@ -30,7 +30,7 @@ public class User implements Serializable {
      * @param username
      */
     public User(String email, String first_name, ArrayList<Course> completed, ArrayList<Course> current, ArrayList<Course> remaining,
-                String last_name, String password, String username) {
+                String last_name, String password, String username, String major, String minor) {
         this.email = email;
         this.first_name = first_name;
         this.completed = completed;
@@ -40,6 +40,8 @@ public class User implements Serializable {
         this.password = password;
         this.username = username;
         this.notices = "";
+        this.major = major;
+        this.minor = minor;
     }
 
     //Getter and setter methods for variable
@@ -118,6 +120,14 @@ public class User implements Serializable {
     boolean exists() {
         return true;
     }
+
+    public String getMajor () { return major; }
+
+    public void setMajor() { this.major = major; }
+
+    public String getMinor() { return minor; }
+
+    public void setMinor() { this.minor = minor; }
 
     /**
      * Method to display User object information

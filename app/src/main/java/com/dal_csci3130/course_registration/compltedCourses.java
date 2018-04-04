@@ -3,6 +3,8 @@ package com.dal_csci3130.course_registration;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -10,6 +12,7 @@ import java.util.ArrayList;
 
 public class compltedCourses extends AppCompatActivity {
 
+    private Course course;
     private User user;
     private DataBase db;
     public ArrayAdapter<Course> results_Adapter;
@@ -31,6 +34,22 @@ public class compltedCourses extends AppCompatActivity {
         ListView results_List = this.findViewById(R.id.resultsList);
         results_Adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, courseList);
         results_List.setAdapter(results_Adapter);
+
+        results_List.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                course = user.getCompleted().get(position);
+                Intent intent = new Intent(compltedCourses.this, rateCourse.class);
+                Bundle extras = new Bundle();
+                extras.putSerializable("user", user);
+                extras.putSerializable("course", course);
+                extras.putSerializable("database", db);
+                intent.putExtras(extras);
+                startActivityForResult(intent, 0);
+            }
+        });
+
+
     }
 
 
@@ -64,6 +83,8 @@ public class compltedCourses extends AppCompatActivity {
         user = (User) extras.getSerializable("user");
         db = (DataBase) extras.getSerializable("database");
     }
+
+
 }
 
 
