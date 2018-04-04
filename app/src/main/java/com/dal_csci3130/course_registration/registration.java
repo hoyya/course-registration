@@ -108,10 +108,8 @@ public class registration extends AppCompatActivity {
         Pattern pattern = Pattern.compile("[^A-Za-z0-9]");
         Matcher matcher = pattern.matcher(pass);
 
-        boolean check = matcher.find();
-
         //if input matches the pattern then passes rule
-        flag = check == true;
+        flag = matcher.find();
         return flag;
     }
 
@@ -122,10 +120,8 @@ public class registration extends AppCompatActivity {
         Pattern pattern = Pattern.compile("[0-9]");
         Matcher matcher = pattern.matcher(pass);
 
-        boolean check = matcher.find();
-
         //test for input containing number pattern
-        flag = check == true;
+        flag = matcher.find();
         return flag;
     }
 
@@ -136,10 +132,8 @@ public class registration extends AppCompatActivity {
         Pattern pattern = Pattern.compile("[A-Z]");
         Matcher matcher = pattern.matcher(pass);
 
-        boolean check = matcher.find();
-
         //check for input in uppercase pattern
-        flag = check == true;
+        flag = matcher.find();
         return flag;
     }
 }

@@ -48,6 +48,7 @@ public class Main2Activity extends AppCompatActivity {
 
         Intent i = getIntent();
         Bundle extras = i.getExtras();
+        assert extras != null;
         user = (User) extras.getSerializable("user");
         db = (DataBase) extras.getSerializable("database");
 
