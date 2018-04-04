@@ -77,7 +77,7 @@ public class DataBase implements Serializable {
 
 		ArrayList<Course> completed = new ArrayList<>();
 		completed.add(course4);
-		completed.add(course5);
+		completed.add(course8);
 
 
 		ArrayList<Course> remaining = new ArrayList<>();
