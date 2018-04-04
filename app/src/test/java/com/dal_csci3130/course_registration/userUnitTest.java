@@ -14,9 +14,9 @@ import static junit.framework.Assert.assertTrue;
 
 public class userUnitTest {
 
-    ArrayList<String> info = new ArrayList<String>();
+    ArrayList<Course> info = new ArrayList<Course>();
 
-    User user = new User("email","john",null,null,null,"doe","password","johnydoe");
+    User user = new User("email","john",info,info,info,"doe","password","johnydoe", "major", "minor");
 
 
     @Test

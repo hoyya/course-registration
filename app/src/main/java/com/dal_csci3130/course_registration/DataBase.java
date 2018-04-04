@@ -48,7 +48,7 @@ public class DataBase implements Serializable {
 		Course course8 = new Course("15","20","5","95","95","3.000","MTW","Algebra","12/12/2017","MATH","LSC Building","{MATH2110 : C|MATH2111 : C}","Math Teacher","0","01","06/09/2017","CSCI","Fall","8:30-9:55","Algebra","2213", "", null);
 
 		//Management
-        	Course course9 = new Course("0","20","20","85","95","3.000","MTW","Managing","12/12/2017","MGMT","Rowe Building","","Management Teacher","10","01","06/09/2017","MGMT","Fall","8:30-9:55","Managing Teams","1000", "", null);
+		Course course9 = new Course("0","20","20","85","95","3.000","MTW","Managing","12/12/2017","MGMT","Rowe Building","","Management Teacher","10","01","06/09/2017","MGMT","Fall","8:30-9:55","Managing Teams","1000", "", null);
 		Course course10 = new Course("0","20","20","85","95","3.000","MTF","Managing","18/04/2017","MGMT","Rowe Building","","Management Teacher","10","01","07/01/2017","MGMT","Winter","8:30-9:55","Managing Teams II","1001", "", null);
 		
 		//Political Science
