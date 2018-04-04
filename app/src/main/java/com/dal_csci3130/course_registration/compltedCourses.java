@@ -83,6 +83,8 @@ public class compltedCourses extends AppCompatActivity {
         user = (User) extras.getSerializable("user");
         db = (DataBase) extras.getSerializable("database");
     }
+
+
 }
 
 

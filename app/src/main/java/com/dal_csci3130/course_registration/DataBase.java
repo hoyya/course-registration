@@ -43,11 +43,18 @@ public class DataBase implements Serializable {
 		Course course5 = new Course("15","20","5","95","95","3.000","MTW","Matrices","12/12/2017","MATH","LSC Building","{MATH2110 : C|MATH2111 : C}","Math Teacher","5","01","06/08/2017","CSCI","Fall","8:30-9:55","Matrices","2210", "", null);
 		Course course6 = new Course("15","20","5","95","95","3.000","MTW","Equations","12/12/2017","MATH","LSC Building","{MATH2110 : C|MATH2111 : C}","Math Teacher","0","01","06/08/2017","CSCI","Fall","8:30-9:55","Equations","2211", "", null);
 		Course course7 = new Course("15","20","5","95","95","3.000","MTW","Graphs","12/12/2017","MATH","LSC Building","{MATH2110 : C|MATH2111 : C}","Math Teacher","0","01","06/08/2017","CSCI","Fall","8:30-9:55","Graphs","2212", "", null);
-		Course course8 = new Course("15","20","5","95","95","3.000","MTW","Algebra","12/12/2017","MATH","LSC Building","{MATH2110 : C|MATH2111 : C}","Math Teacher","11","01","06/08/2017","CSCI","Fall","8:30-9:55","Algebra","2213", "", null);
+		Course course8 = new Course("15","20","5","95","95","3.000","MTW","Algebra","12/12/2017","MATH","LSC Building","{MATH2110 : C|MATH2111 : C}","Math Teacher","0","01","06/08/2017","CSCI","Fall","8:30-9:55","Algebra","2213", "", null);
 
 		//TODO: POPULATE DATABASE
-        //Management and Political Science
-        //Course course9 = new Course("15","20","5","95","95","3.000","MTW","Algebra","12/12/2017","MATH","LSC Building","{MATH2110 : C|MATH2111 : C}","Math Teacher","11","01","06/08/2017","CSCI","fall","8:30-9:55","Algebra","2213", "", null);
+        	//Management and Political Science
+        	Course course9 = new Course("0","20","20","85","95","3.000","MTW","Managing","12/12/2017","MGMT","Rowe Building","","Management Teacher","10","01","06/08/2017","MGMT","Fall","8:30-9:55","Managing Teams","1000", "", null);
+		Course course10 = new Course("0","20","20","85","95","3.000","MTF","Managing","12/12/2017","MGMT","Rowe Building","","Management Teacher","10","01","06/08/2017","MGMT","Winter","8:30-9:55","Managing Teams II","1001", "", null);
+		Course course11 = new Course("0","20","20","85","95","3.000","MTW","International","12/12/2017","POLI","LSC Building","","Science Teacher","10","01","06/08/2017","POLI","Fall","10:30-13:55","Global Teams","1350", "", null);
+		Course course12 = new Course("0","20","20","85","95","3.000","TR","Local","12/12/2017","POLI","LSC Building","","Poli Teacher","10","01","06/08/2017","POLI","Fall","18:30-19:55","Local Teams","1450", "", null);
+		
+		//Biologoy
+		//Course course13 = new Course("15","20","5","95","95","3.000","MTW","Algebra","12/12/2017","MGMT","Rowe Building","","Management Teacher","10","01","06/08/2017","CSCI","Fall","8:30-9:55","Managing Teams","1000", "", null);
+		
 		courselist.add(course1);
 		courselist.add(course2);
 		courselist.add(course3);
@@ -56,7 +63,11 @@ public class DataBase implements Serializable {
 		courselist.add(course6);
 		courselist.add(course7);
 		courselist.add(course8);
-
+		courselist.add(course9);
+		coureslist.add(course10);
+		courselist.add(course11);
+		courselist.add(course12);
+		
 		ArrayList<Course> current = new ArrayList<>();
 		current.add(course1);
 		current.add(course3);
@@ -69,6 +80,8 @@ public class DataBase implements Serializable {
 		remaining.add(course1);
 		remaining.add(course2);
 		remaining.add(course3);
+		remaining.add(course9);
+		remaining.add(course12);
 
 		// email, String first_name, String completed, String current, String remaining, String last_name, String password, String username
 		User user1 = new User("admin@dal.ca", "John", completed, current, remaining, "Doe", "admin", "admin");
@@ -85,6 +98,8 @@ public class DataBase implements Serializable {
 		ArrayList<Course> remaining2 = new ArrayList<>();
 		remaining2.add(course2);
 		remaining2.add(course8);
+		remaining2.add(course10);
+		remaining2.add(course11);
 
 		User user2 = new User("lolipop@dal.ca","Luke",completed2,current2,remaining2,"Duke","adri@tIk","B00878787");
 
