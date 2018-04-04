@@ -57,6 +57,7 @@ public class DataBase implements Serializable {
 		
 		//Biologoy
 		Course course13 = new Course("0","20","20","85","95","3.000","TRF","Stem","12/12/2017","BIOL","LSC Building","","Science Teacher","10","01","06/09/2017","BIOL","Fall","18:30-19:55","Stem Research","1150", "", null);
+        Course course14 = new Course("0","20","20","85","95","3.000","TRF","Stem","17/04/2017","BIOL","LSC Building","","Science Teacher","10","01","07/01/2017","BIOL","Winter","18:30-19:55","Cell Research","1250", "", null);
 
 		courselist.add(course1);
 		courselist.add(course2);
@@ -70,7 +71,7 @@ public class DataBase implements Serializable {
 		courselist.add(course10);
 		courselist.add(course11);
 		courselist.add(course12);
-		
+		courselist.add(course13);
 		ArrayList<Course> current = new ArrayList<>();
 		current.add(course1);
 		current.add(course3);
