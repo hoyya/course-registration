@@ -6,27 +6,26 @@
     android:layout_height="match_parent"
     tools:context="com.dal_csci3130.course_registration.compltedCourses">
 
-<TextView
-    android:id="@+id/current"
-    android:layout_width="170dp"
-    android:layout_height="38dp"
-    android:layout_marginLeft="16dp"
-    android:layout_marginTop="8dp"
-    android:text="Completed Courses"
-    app:layout_constraintLeft_toLeftOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    tools:visibility="visible" />
+    <TextView
+        android:id="@+id/current"
+        android:layout_width="170dp"
+        android:layout_height="38dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Completed Courses"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
 
-<ListView
-    android:id="@+id/resultsList"
-    android:layout_width="370dp"
-    android:layout_height="400dp"
-    android:layout_marginTop="8dp"
-    android:autoText="true"
-    app:layout_constraintTop_toBottomOf="@+id/current"
-    tools:layout_editor_absoluteX="0dp"
-    tools:ignore="MissingConstraints" />
-
+    <ListView
+        android:id="@+id/resultsList"
+        android:layout_width="370dp"
+        android:layout_height="400dp"
+        android:layout_marginTop="8dp"
+        android:autoText="true"
+        app:layout_constraintTop_toBottomOf="@+id/current"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp" />
 
 
 </android.support.constraint.ConstraintLayout>

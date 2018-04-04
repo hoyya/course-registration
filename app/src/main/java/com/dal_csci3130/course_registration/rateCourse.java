@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Adapter;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.ArrayAdapter;
 
 import java.util.ArrayList;
 
@@ -35,6 +36,10 @@ public class rateCourse extends AppCompatActivity {
         rating = 0;
 
         //todo: add spinner
+        Spinner spinner = findViewById(R.id.rate_spinner);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.rate_array, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
 
         int max = 0;
         if (course.getRating() != null) {
