@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.ArrayAdapter;
@@ -20,6 +21,8 @@ public class rateCourse extends AppCompatActivity {
     private int rating;
     private Spinner spinner;
     private Adapter adapter;
+    private String notice;
+    private boolean rated;
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -34,8 +37,8 @@ public class rateCourse extends AppCompatActivity {
         course = (Course) extras.getSerializable("course");
         db = (DataBase) extras.getSerializable("database");
         rating = 0;
+        rated = false;
 
-        //todo: add spinner
         Spinner spinner = findViewById(R.id.rate_spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.rate_array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -64,6 +67,53 @@ public class rateCourse extends AppCompatActivity {
                 "\nDescription:\n" + course.getDescription() +
                 "\n\nPrereq of: " + course.getPrereq() +
                 "\n\nPrereq for: " + course.getPrereqf());
+
+        //Adapter of rate
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                System.out.println("rating before = "+rating);
+                switch (i) {
+                    case 0:
+                        rating = 1;
+                        break;
+                    case 1:
+                        rating = 2;
+                        break;
+                    case 2:
+                        rating = 3;
+                        break;
+                    case 3:
+                        rating = 4;
+                        break;
+                    case 4:
+                        rating = 5;
+                        break;
+                    case 5:
+                        rating = 6;
+                        break;
+                    case 6:
+                        rating = 7;
+                        break;
+                    case 7:
+                        rating = 8;
+                        break;
+                    case 8:
+                        rating = 9;
+                        break;
+                    case 9:
+                        rating = 10;
+                        break;
+                }
+                System.out.println("rating after = "+rating);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+                rating = 1;
+            }
+        });
     }
 
     /**
@@ -71,12 +121,19 @@ public class rateCourse extends AppCompatActivity {
      * @param view
      */
     public void addRating(View view) {
-        //todo: grab rating from spinner
-        rating = 8;
-        ArrayList<Integer> ratings = course.getRating();
-        ratings.add(rating);
-        course.setRating(ratings);
-        db.updateCourse(course);
+        if (!rated) {
+            System.out.println("rating = " + rating);
+            ArrayList<Integer> ratings = course.getRating();
+            if (ratings == null) {
+                ratings = new ArrayList<Integer>();
+            }
+            ratings.add(rating);
+            course.setRating(ratings);
+            db.updateCourse(course);
+        }
+        else {
+            notice = "already rated this class";
+        }
     }
 
     /**
