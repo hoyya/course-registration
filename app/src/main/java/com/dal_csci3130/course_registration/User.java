@@ -10,16 +10,8 @@ import java.util.Map;
 public class User implements Serializable {
 
     //Instance variables
-    private String email;
-    private String first_name;
-    private ArrayList<Course> completed;
-    private ArrayList<Course> current;
-    private ArrayList<Course> remaining;
-    private String last_name;
-    private String password;
-    private String username;
-    private String notices;
-
+    private String email, first_name, last_name, password, username, notices;
+    private ArrayList<Course> completed, current, remaining;
 
     public User() {
         // Default constructor required for calls to DataSnapshot.getValue
