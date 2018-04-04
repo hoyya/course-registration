@@ -14,7 +14,6 @@ public class Course implements Serializable {
     private String WL_Act, WL_Cap, WL_Rem, act, cap, cred, days, description, enddate, faculty, location, prereq, professor, rem, section, startdate, subject, term, time, title, year, prereqf;
     private ArrayList<Integer> rating;
 
-
     public Course() {
         // Default constructor required for calls to DataSnapshot.getValue
     }

@@ -49,8 +49,6 @@ public class compltedCourses extends AppCompatActivity {
     }
 
     /**
-     *
-     *
      * @param requestCode
      * @param resultCode
      * @param data

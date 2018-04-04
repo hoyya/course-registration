@@ -22,7 +22,6 @@ public class DataBase implements Serializable {
 
 	public void initialize() {
 		////GET ALL DB OBJECTS
-
 		ArrayList<Integer> l1 = new ArrayList<Integer>();
 		l1.add(7);
 		l1.add(9);
@@ -35,6 +34,8 @@ public class DataBase implements Serializable {
 		ArrayList<Integer> l4 = new ArrayList<Integer>();
 		l4.add(5);
 		l4.add(3);
+
+		//Computer Science and Math Courses
 		Course course1 = new Course("0","20","20","91","115","3.000","TR","Implementing Agile workstyle as a team","04/06/2018","CSCI","Psychology building","{CSCI2110 : C|CSCI2111 : C}","Juliano Franz","24","01","01/08/2018","CSCI","winter","14:35-15:55","Software Engineering","3130", "CSCI4116: C", l1);
 		Course course2 = new Course("0","20","20","91","100","3.000","MWF","Introduction to Cryptography","04/06/2018","CSCI","LSC","{CSCI2110 : C|CSCI2111 : C}","Peter Selinger","9","01","01/08/2018","CSCI","winter","14:35-15:25","Cryptography","4116", "", l2);
 		Course course3 = new Course("15","20","5","95","95","3.000","TR","Operating systems","04/06/2018","CSCI","Psychology building","{CSCI2110 : C|CSCI2111 : C}","Alex Brodsky","0","01","01/08/2018","CSCI","winter","13:05-14:30","Operating Systems","3120", "CSCI4116: C", l3);
@@ -44,6 +45,9 @@ public class DataBase implements Serializable {
 		Course course7 = new Course("15","20","5","95","95","3.000","MTW","Graphs","12/12/2017","MATH","LSC Building","{MATH2110 : C|MATH2111 : C}","Math Teacher","0","01","06/08/2017","CSCI","fall","8:30-9:55","Graphs","2212", "", null);
 		Course course8 = new Course("15","20","5","95","95","3.000","MTW","Algebra","12/12/2017","MATH","LSC Building","{MATH2110 : C|MATH2111 : C}","Math Teacher","11","01","06/08/2017","CSCI","fall","8:30-9:55","Algebra","2213", "", null);
 
+		//TODO: POPULATE DATABASE
+        //Management and Political Science
+        //Course course9 = new Course("15","20","5","95","95","3.000","MTW","Algebra","12/12/2017","MATH","LSC Building","{MATH2110 : C|MATH2111 : C}","Math Teacher","11","01","06/08/2017","CSCI","fall","8:30-9:55","Algebra","2213", "", null);
 		courselist.add(course1);
 		courselist.add(course2);
 		courselist.add(course3);
@@ -67,7 +71,7 @@ public class DataBase implements Serializable {
 		remaining.add(course3);
 
 		// email, String first_name, String completed, String current, String remaining, String last_name, String password, String username
-		User user1 = new User("admin@dal.ca", "john", completed, current, remaining, "doe", "admin", "admin");
+		User user1 = new User("admin@dal.ca", "John", completed, current, remaining, "Doe", "admin", "admin");
 
 
 		ArrayList<Course> current2 = new ArrayList<Course>();
@@ -89,6 +93,8 @@ public class DataBase implements Serializable {
 
 	}
 
+
+	//Methods to update course and user
 	public void updateUser(User user) {
 		//Given a user, change to given user
 	}
@@ -102,6 +108,7 @@ public class DataBase implements Serializable {
 		}
 	}
 
+	//Getter and setter methods
 	public void addCourse(Course course) {
 		courselist.add(course);
 	}
