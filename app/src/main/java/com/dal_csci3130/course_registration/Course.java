@@ -187,7 +187,9 @@ public class Course implements Serializable {
         return prereq;
     }
 
-    public String getPrereqf() { return prereqf; }
+    public String getPrereqf() {
+        return prereqf;
+    }
 
     public String getLocation() {
         return location;
@@ -233,7 +235,9 @@ public class Course implements Serializable {
         return this.WL_Act;
     }
 
-    public ArrayList<Integer> getRating() { return this.rating; }
+    public ArrayList<Integer> getRating() {
+        return this.rating;
+    }
 
     public void setWL_Cap(String WL_Cap) {
         this.WL_Cap = WL_Cap;
@@ -256,7 +260,9 @@ public class Course implements Serializable {
         this.year = year;
     }
 
-    public void setRating(ArrayList<Integer> rating) {this.rating = rating;}
+    public void setRating(ArrayList<Integer> rating) {
+        this.rating = rating;
+    }
 
     public void setTitle(String title) {
 
@@ -340,6 +346,7 @@ public class Course implements Serializable {
     }
 
 
-
-    public String toString(){return this.title + " "+this.faculty+this.year+ " \n" + this.term + " " + this.days +" "+ this.time;}
+    public String toString() {
+        return this.title + " " + this.faculty + this.year + " \n" + this.term + " " + this.days + " " + this.time;
+    }
 }
