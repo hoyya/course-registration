@@ -12,21 +12,15 @@ import java.util.Objects;
 
 public class course_details extends AppCompatActivity {
 
-    private TextView tview;
-    private TextView notice;
+    private TextView tview, notice;
     private Course course;
     private User user;
-    private ArrayList<Course> completed;
-    private ArrayList<Course> current;
-    private ArrayList<Course> remaining;
+    private ArrayList<Course> completed, current, remaining;
     private DataBase db;
     private int rating;
 
-
-
     @SuppressLint("SetTextI18n")
     @Override
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course_details);
