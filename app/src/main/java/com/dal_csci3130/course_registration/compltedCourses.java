@@ -33,6 +33,9 @@ public class compltedCourses extends AppCompatActivity {
         results_List.setAdapter(results_Adapter);
     }
 
+
+    //TODO: need to add a button to rate a course
+
     /**
      * return user and db to previous activity
      */
@@ -56,6 +59,7 @@ public class compltedCourses extends AppCompatActivity {
      */
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+
         Bundle extras = data.getExtras();
         user = (User) extras.getSerializable("user");
         db = (DataBase) extras.getSerializable("database");
