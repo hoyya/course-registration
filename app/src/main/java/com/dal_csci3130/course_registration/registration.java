@@ -32,7 +32,7 @@ public class registration extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if(validPassword(password.getText().toString())&& !TextUtils.isEmpty(username.getText().toString())&& !TextUtils.isEmpty(firstName.getText().toString())&& !TextUtils.isEmpty(lastName.getText().toString())&& !TextUtils.isEmpty(email.getText().toString()))    {
+                if (validPassword(password.getText().toString()) && !TextUtils.isEmpty(username.getText().toString()) && !TextUtils.isEmpty(firstName.getText().toString()) && !TextUtils.isEmpty(lastName.getText().toString()) && !TextUtils.isEmpty(email.getText().toString())) {
                     startActivity(new Intent(registration.this, login.class));
                 }
             }
@@ -47,32 +47,32 @@ public class registration extends AppCompatActivity {
         });
     }
 
-    public boolean validPassword(String pass)   {
+    public boolean validPassword(String pass) {
 
         boolean flag;
         final TextView passConfirm = (TextView) findViewById(R.id.passConfirm);
 
-        if(!checkPassword(pass))   {
+        if (!checkPassword(pass)) {
             passConfirm.setText("Password must not be password");
             flag = false;
 
-        } else if(!checkLength(pass)) {
+        } else if (!checkLength(pass)) {
             passConfirm.setText("Password must be at least 8 characters");
             flag = false;
 
-        } else if(!checkSpecialChar(pass)) {
+        } else if (!checkSpecialChar(pass)) {
             passConfirm.setText("Password must contain a special character");
             flag = false;
 
-        } else if(!checkDigit(pass)) {
+        } else if (!checkDigit(pass)) {
             passConfirm.setText("Password must contain a number");
             flag = false;
 
-        } else if(!checkUpperCase(pass)) {
+        } else if (!checkUpperCase(pass)) {
             passConfirm.setText("Password must contain uppercase character");
             flag = false;
 
-        } else  {
+        } else {
             passConfirm.setText("Password validated!");
             flag = true;
         }
@@ -81,13 +81,13 @@ public class registration extends AppCompatActivity {
 
     }
 
-    public boolean checkPassword(String pass)   {
+    public boolean checkPassword(String pass) {
 
         boolean flag;
 
         //since case insensitve, make lowercase to test
 
-        if(pass!=null && pass.toLowerCase().equals("password")) {
+        if (pass != null && pass.toLowerCase().equals("password")) {
             flag = false;
         } else {
             flag = true;
@@ -100,15 +100,15 @@ public class registration extends AppCompatActivity {
         boolean flag;
 
         //ensure greater or equal to 8
-        if(pass!=null && pass.length()>=8)  {
+        if (pass != null && pass.length() >= 8) {
             flag = true;
-        } else  {
+        } else {
             flag = false;
         }
         return flag;
     }
 
-    public boolean checkSpecialChar(String pass)    {
+    public boolean checkSpecialChar(String pass) {
 
         boolean flag;
 
@@ -122,13 +122,13 @@ public class registration extends AppCompatActivity {
         //if input matches the pattern then passes rule
         if (check == true) {
             flag = true;
-        } else  {
+        } else {
             flag = false;
         }
         return flag;
     }
 
-    public boolean checkDigit(String pass)  {
+    public boolean checkDigit(String pass) {
 
         boolean flag;
 
@@ -140,13 +140,13 @@ public class registration extends AppCompatActivity {
         //test for input containing number pattern
         if (check == true) {
             flag = true;
-        } else  {
+        } else {
             flag = false;
         }
         return flag;
     }
 
-    public boolean checkUpperCase(String pass)  {
+    public boolean checkUpperCase(String pass) {
 
         boolean flag;
 
@@ -158,7 +158,7 @@ public class registration extends AppCompatActivity {
         //check for input in uppercase pattern
         if (check == true) {
             flag = true;
-        } else  {
+        } else {
             flag = false;
         }
         return flag;

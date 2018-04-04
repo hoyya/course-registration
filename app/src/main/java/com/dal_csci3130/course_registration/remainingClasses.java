@@ -48,8 +48,6 @@ public class remainingClasses extends AppCompatActivity {
     }
 
     /**
-     * 
-     *
      * @param requestCode
      * @param resultCode
      * @param data
