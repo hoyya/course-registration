@@ -125,7 +125,7 @@ public class Course implements Serializable {
     }
 
     //Getter methods
-    public String getYear() {
+    String getYear() {
         return year;
     }
 
@@ -137,7 +137,7 @@ public class Course implements Serializable {
         return time;
     }
 
-    public String getTerm() {
+    String getTerm() {
         return term;
     }
 
@@ -149,31 +149,31 @@ public class Course implements Serializable {
         return startdate;
     }
 
-    public String getSection() {
+    String getSection() {
         return section;
     }
 
-    public String getRem() {
+    String getRem() {
         return rem;
     }
 
-    public String getProfessor() {
+    String getProfessor() {
         return professor;
     }
 
-    public String getPrereq() {
+    String getPrereq() {
         return prereq;
     }
 
-    public String getPrereqf() {
+    String getPrereqf() {
         return prereqf;
     }
 
-    public String getLocation() {
+    String getLocation() {
         return location;
     }
 
-    public String getFaculty() {
+    String getFaculty() {
         return faculty;
     }
 
@@ -181,11 +181,11 @@ public class Course implements Serializable {
         return enddate;
     }
 
-    public String getDescription() {
+    String getDescription() {
         return description;
     }
 
-    public String getDays() {
+    String getDays() {
         return days;
     }
 
@@ -193,7 +193,7 @@ public class Course implements Serializable {
         return cred;
     }
 
-    public String getCap() {
+    String getCap() {
         return cap;
     }
 
@@ -213,7 +213,7 @@ public class Course implements Serializable {
         return this.WL_Act;
     }
 
-    public ArrayList<Integer> getRating() {
+    ArrayList<Integer> getRating() {
         return this.rating;
     }
 

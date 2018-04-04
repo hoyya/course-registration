@@ -55,7 +55,9 @@ public class search_results extends View {
         if (a.hasValue(R.styleable.search_results_exampleDrawable)) {
             mExampleDrawable = a.getDrawable(
                     R.styleable.search_results_exampleDrawable);
-            mExampleDrawable.setCallback(this);
+            if (mExampleDrawable != null) {
+                mExampleDrawable.setCallback(this);
+            }
         }
 
         a.recycle();

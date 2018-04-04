@@ -26,9 +26,15 @@ public class course_details extends AppCompatActivity {
         setContentView(R.layout.activity_course_details);
         Intent i = getIntent();
         Bundle extras = i.getExtras();
-        user = (User) extras.getSerializable("user");
-        course = (Course) extras.getSerializable("course");
-        db = (DataBase) extras.getSerializable("database");
+        if (extras != null) {
+            user = (User) extras.getSerializable("user");
+        }
+        if (extras != null) {
+            course = (Course) extras.getSerializable("course");
+        }
+        if (extras != null) {
+            db = (DataBase) extras.getSerializable("database");
+        }
         completed = user.getCompleted();
         current = user.getCurrent();
         remaining = user.getRemaining();
@@ -42,9 +48,8 @@ public class course_details extends AppCompatActivity {
                 max += 1;
             }
         }
-        ;
-        notice = (TextView) findViewById(R.id.notice);
-        TextView tview = (TextView) findViewById(R.id.textView);
+        notice = findViewById(R.id.notice);
+        TextView tview = findViewById(R.id.textView);
         tview.setText(course.getTitle() + course.getYear() +
                 "\nRemaining:" + course.getRem() +
                 "\nCapacity:" + course.getCap() +

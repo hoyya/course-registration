@@ -43,7 +43,7 @@ public class User implements Serializable {
     }
 
     //Getter and setter methods for variable
-    public ArrayList<Course> getCompleted() {
+    ArrayList<Course> getCompleted() {
         return completed;
     }
 
@@ -51,19 +51,19 @@ public class User implements Serializable {
         this.completed = completed;
     }
 
-    public ArrayList<Course> getCurrent() {
+    ArrayList<Course> getCurrent() {
         return current;
     }
 
-    public void setCurrent(ArrayList<Course> current) {
+    void setCurrent(ArrayList<Course> current) {
         this.current = current;
     }
 
-    public ArrayList<Course> getRemaining() {
+    ArrayList<Course> getRemaining() {
         return remaining;
     }
 
-    public void setRemaining(ArrayList<Course> remaining) {
+    void setRemaining(ArrayList<Course> remaining) {
         this.remaining = remaining;
     }
 
@@ -75,7 +75,7 @@ public class User implements Serializable {
         this.email = email;
     }
 
-    public String getFirst_name() {
+    String getFirst_name() {
         return first_name;
     }
 
@@ -83,7 +83,7 @@ public class User implements Serializable {
         this.first_name = first_name;
     }
 
-    public String getLast_name() {
+    String getLast_name() {
         return last_name;
     }
 
