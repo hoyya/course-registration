@@ -17,6 +17,8 @@ public class profile extends AppCompatActivity {
     public DataBase db;
 
     TextView welcome;
+    TextView majorDisplay;
+    TextView minorDisplay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +33,12 @@ public class profile extends AppCompatActivity {
         //Displays the current users name in a welcome message
         welcome = findViewById(R.id.welcomeMessage);
         welcome.setText("Welcome, " + user.getFirst_name() + " " + user.getLast_name());
+
+        majorDisplay = findViewById(R.id.majorDisplay);
+        minorDisplay = findViewById(R.id.minorDisplay);
+
+        majorDisplay.setText(user.getMajor());
+        minorDisplay.setText(user.getMinor());
 
         Button classSearch = findViewById(R.id.classSearch);
         Button currentCourses = findViewById(R.id.currentCourses);
