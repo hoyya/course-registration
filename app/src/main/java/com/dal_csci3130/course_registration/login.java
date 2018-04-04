@@ -82,11 +82,7 @@ public class login extends Activity {
                 extras.putSerializable("database", db);
                 intent.putExtras(extras);
                 startActivityForResult(intent,0);
-            } else {
-                Toast.makeText(login.this, "Invalid Credentials!",
-                        Toast.LENGTH_LONG).show();
             }
-
         }
     }
 }
