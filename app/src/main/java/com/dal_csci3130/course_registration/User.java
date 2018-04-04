@@ -49,6 +49,7 @@ public class User implements Serializable {
         this.username = username;
         this.notices = "";
     }
+
     //Getter and setter methods for variable
     public ArrayList<Course> getCompleted() {
         return completed;
@@ -114,7 +115,9 @@ public class User implements Serializable {
         this.username = username;
     }
 
-    public String getNotices() { return notices; }
+    public String getNotices() {
+        return notices;
+    }
 
     public void setNotices(String notices) {
         this.notices = notices;

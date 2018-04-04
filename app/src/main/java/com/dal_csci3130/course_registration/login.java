@@ -52,6 +52,7 @@ public class login extends Activity {
             }
         });
     }
+
     @Override
     public void onBackPressed() {
         //super.onBackPressed();
@@ -73,7 +74,7 @@ public class login extends Activity {
 
     public void validUser(String username, String password) {
 
-        for (int i=0; i<db.getUserlist().size(); i++) {
+        for (int i = 0; i < db.getUserlist().size(); i++) {
             if (username.equals(db.getUserlist().get(i).getUsername()) && password.equals(db.getUserlist().get(i).getPassword())) {
                 user = db.getUserlist().get(i);
                 Intent intent = new Intent(login.this, profile.class);
@@ -81,7 +82,7 @@ public class login extends Activity {
                 extras.putSerializable("user", user);
                 extras.putSerializable("database", db);
                 intent.putExtras(extras);
-                startActivityForResult(intent,0);
+                startActivityForResult(intent, 0);
             }
         }
     }

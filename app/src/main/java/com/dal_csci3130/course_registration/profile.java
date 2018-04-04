@@ -24,25 +24,15 @@ public class profile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-
         Intent i = getIntent();
         Bundle extras = i.getExtras();
         user = (User) extras.getSerializable("user");
         db = (DataBase) extras.getSerializable("database");
-
         System.out.println("Size of courselist in profile_view: " + db.getCourselist().size());
-
 
         //Displays the current users name in a welcome message
         welcome = findViewById(R.id.welcomeMessage);
-
         welcome.setText("Welcome, " + user.getFirst_name() + " " + user.getLast_name());
-
-
-        if (user != null) {
-
-        }
-
 
         Button classSearch = (Button) findViewById(R.id.classSearch);
         Button currentCourses = (Button) findViewById(R.id.currentCourses);
@@ -80,8 +70,7 @@ public class profile extends AppCompatActivity {
                 intent.putExtras(extras);
 
 
-
-                startActivityForResult(intent,0);
+                startActivityForResult(intent, 0);
 
             }
         });
@@ -93,7 +82,7 @@ public class profile extends AppCompatActivity {
                 Intent intent = new Intent(profile.this, currentClasses.class);
                 intent.putExtra("user", user);
                 intent.putExtra("database", db);
-                startActivityForResult(intent,0);
+                startActivityForResult(intent, 0);
 
             }
         });
@@ -105,7 +94,7 @@ public class profile extends AppCompatActivity {
                 Intent intent = new Intent(profile.this, compltedCourses.class);
                 intent.putExtra("user", user);
                 intent.putExtra("database", db);
-                startActivityForResult(intent,0);
+                startActivityForResult(intent, 0);
 
             }
         });
@@ -117,7 +106,7 @@ public class profile extends AppCompatActivity {
                 Intent intent = new Intent(profile.this, remainingClasses.class);
                 intent.putExtra("user", user);
                 intent.putExtra("database", db);
-                startActivityForResult(intent,0);
+                startActivityForResult(intent, 0);
 
             }
         });
@@ -215,7 +204,6 @@ public class profile extends AppCompatActivity {
             }
         });
     }
-
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

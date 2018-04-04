@@ -13,10 +13,8 @@ public class compltedCourses extends AppCompatActivity {
 
     private User user;
     private DataBase db;
-
     private ArrayList<Course> courseList = new ArrayList<Course>();
     private ListView results_List;
-
     public ArrayAdapter<Course> results_Adapter;
 
 
@@ -32,14 +30,8 @@ public class compltedCourses extends AppCompatActivity {
 
         courseList = user.getCompleted();
 
-
         //drop_Button = this.findViewById(R.id.dropButton);
         //Gets filter conditions
-
-
-
-
-
         results_List = this.findViewById(R.id.resultsList);
         results_Adapter = new ArrayAdapter<Course>(this, android.R.layout.simple_list_item_1, courseList);
         results_List.setAdapter(results_Adapter);

@@ -159,6 +159,7 @@ public class Main2Activity extends AppCompatActivity {
             }
         });
     }
+
     public void filterApply(View v) {
         //results of query
         String tmp_string = "";
@@ -168,7 +169,6 @@ public class Main2Activity extends AppCompatActivity {
         String faculty = (Filter1);
         results_Adapter.clear();
         filtered_search search_instance = new filtered_search(db);
-
 
 
         results_courses = search_instance.QUERY_COURSES_DB(faculty, year);
