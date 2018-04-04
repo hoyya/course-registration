@@ -87,7 +87,7 @@ public class DataBase implements Serializable {
 		remaining.add(course12);
 
 		// email, String first_name, String completed, String current, String remaining, String last_name, String password, String username
-		User user1 = new User("admin@dal.ca", "John", completed, current, remaining, "Doe", "admin", "admin");
+		User user1 = new User("admin@dal.ca", "John", completed, current, remaining, "Doe", "admin", "admin", "Computer Science", "Mathematics");
 
 
 		ArrayList<Course> current2 = new ArrayList<>();
@@ -104,7 +104,7 @@ public class DataBase implements Serializable {
 		remaining2.add(course10);
 		remaining2.add(course11);
 
-		User user2 = new User("lolipop@dal.ca","Luke",completed2,current2,remaining2,"Duke","adri@tIk","B00878787");
+		User user2 = new User("lolipop@dal.ca","Luke",completed2,current2,remaining2,"Duke","adri@tIk","B00878787", "Mathematics", "Political Science");
 
 		userlist.add(user1);
 		userlist.add(user2);
