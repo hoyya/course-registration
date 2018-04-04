@@ -17,12 +17,10 @@ public class search_results extends View {
 
     private String mExampleString; // TODO: use a default from R.string...
     private int mExampleColor = Color.RED; // TODO: use a default from R.color...
-    private float mExampleDimension = 0; // TODO: use a default from R.dimen...
     private Drawable mExampleDrawable;
     private TextPaint mTextPaint;
-    private float mTextWidth;
-    private float mTextHeight;
-
+    private float mTextWidth, mTextHeight, mExampleDimension = 0;
+    
     public search_results(Context context) {
         super(context);
         init(null, 0);
