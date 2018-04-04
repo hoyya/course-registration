@@ -1,4 +1,5 @@
 package com.dal_csci3130.course_registration;
+import java.util.ArrayList;
 
 import org.junit.Test;
 
@@ -11,10 +12,10 @@ import static junit.framework.Assert.assertTrue;
  */
 
 public class courseUnitTest {
-
+    ArrayList<Integer> ratinglist = new ArrayList<Integer>();
     Course course = new Course("0", "20", "20", "120", "200","3.0","TR","software eng",
             "enddate","faculty","location","prereq","juliano","80","01","startdate","subject",
-            "W","2:30-4","CSCI","3130", "", null );
+            "W","2:30-4","CSCI","3130", "", ratinglist );
 
 
     @Test
