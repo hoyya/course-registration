@@ -47,6 +47,13 @@ public class remainingClasses extends AppCompatActivity {
         finish();
     }
 
+    /**
+     * 
+     *
+     * @param requestCode
+     * @param resultCode
+     * @param data
+     */
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         Bundle extras = data.getExtras();
