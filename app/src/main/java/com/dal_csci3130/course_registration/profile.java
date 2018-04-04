@@ -12,9 +12,7 @@ import android.widget.TextView;
 
 public class profile extends AppCompatActivity {
 
-    public String Faculty;
-    public String Major;
-    public String Minor;
+    public String Faculty, Major, Minor;
     public User user;
     public DataBase db;
 
@@ -117,22 +115,20 @@ public class profile extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 switch (i) {
                     case 0:
-                        Faculty = "";
-                        break;
-                    case 1:
                         Faculty = "BCS";
                         break;
-                    case 2:
+                    case 1:
                         Faculty = "BACS";
                         break;
-                    case 3:
+                    case 2:
                         Faculty = "BSC";
                         break;
-                    case 4:
+                    case 3:
                         Faculty = "BCOMM";
                         break;
-                    case 5:
+                    case 4:
                         Faculty = "BA";
+                        break;
                 }
             }
 
@@ -147,21 +143,18 @@ public class profile extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 switch (i) {
                     case 0:
-                        Major = "";
-                        break;
-                    case 1:
                         Major = "Computer Science";
                         break;
-                    case 2:
+                    case 1:
                         Major = "Mathematics";
                         break;
-                    case 3:
+                    case 2:
                         Major = "Management";
                         break;
-                    case 4:
+                    case 3:
                         Major = "Biology";
                         break;
-                    case 5:
+                    case 4:
                         Major = "Political Science";
                         break;
                 }
@@ -178,21 +171,18 @@ public class profile extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 switch (i) {
                     case 0:
-                        Minor = "";
-                        break;
-                    case 1:
                         Minor = "Computer Science";
                         break;
-                    case 2:
+                    case 1:
                         Minor = "Math";
                         break;
-                    case 3:
+                    case 2:
                         Minor = "Management";
                         break;
-                    case 4:
+                    case 3:
                         Minor = "Biology";
                         break;
-                    case 5:
+                    case 4:
                         Minor = "Political Science";
                         break;
                 }
