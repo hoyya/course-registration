@@ -61,5 +61,3 @@ public class remainingClasses extends AppCompatActivity {
         db = (DataBase) extras.getSerializable("database");
     }
 }
-
-

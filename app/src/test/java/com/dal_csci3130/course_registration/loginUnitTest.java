@@ -14,11 +14,11 @@ public class loginUnitTest {
         String uName = "admin";
         String pass = "admin";
 
-        boolean output;
+        boolean output = false;
         boolean expected = true;
 
         login loginTest = new login();
-        output = loginTest.validUser(uName, pass);
+        loginTest.validUser(uName, pass);
 
         assertEquals(expected, output);
     }

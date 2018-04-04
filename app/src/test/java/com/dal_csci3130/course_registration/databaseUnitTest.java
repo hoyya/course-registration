@@ -29,7 +29,7 @@ public class databaseUnitTest {
     public void coursesearch() throws Exception{
         System.out.println("filtered_search course test");
 
-        filtered_search search = new filtered_search();
+        filtered_search search = new filtered_search(db);
         ArrayList<Course> result = search.QUERY_COURSES_DB("CSCI","3","0");
         for (int i = 0; i< result.size();i++) {
             System.out.println(result.get(i).stringify());
@@ -40,7 +40,7 @@ public class databaseUnitTest {
     public void usersearch() throws Exception {
         System.out.println("filtered_search user test");
 
-        filtered_search search = new filtered_search();
+        filtered_search search = new filtered_search(db);
         User result = search.QUERY_USERS_DB("admin", "admin");
         System.out.println(result.stringify());
     }
