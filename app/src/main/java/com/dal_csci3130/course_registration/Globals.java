@@ -14,10 +14,19 @@ public class Globals implements Serializable {
         // Default constructor required for calls to DataSnapshot.getValue
     }
 
-    public void setUser(User user) {this.user = user;}
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     public void setCourselist(ArrayList<Course> courselist) {
         this.courselist = courselist;
     }
-    public User getUser() {return user;}
-    public ArrayList<Course> getCourses(){return courselist;}
+
+    public User getUser() {
+        return user;
+    }
+
+    public ArrayList<Course> getCourses() {
+        return courselist;
+    }
 }
