@@ -33,6 +33,9 @@ public class compltedCourses extends AppCompatActivity {
         results_List.setAdapter(results_Adapter);
     }
 
+    /**
+     * return user and db to previous activity
+     */
     @Override
     public void onBackPressed() {
         //super.onBackPressed();
@@ -46,9 +49,10 @@ public class compltedCourses extends AppCompatActivity {
     }
 
     /**
-     * @param requestCode
-     * @param resultCode
-     * @param data
+     *  Wait for results from initiated activity and update this activities params
+     * @param requestCode = request code of activity
+     * @param resultCode = result code of activity (expect 0)
+     * @param data = bundles
      */
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
