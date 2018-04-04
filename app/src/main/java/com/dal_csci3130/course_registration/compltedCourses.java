@@ -26,7 +26,11 @@ public class compltedCourses extends AppCompatActivity {
 
         ArrayList<Course> courseList = user.getCompleted();
 
-        displayCurrent(courseList);
+        //drop_Button = this.findViewById(R.id.dropButton);
+        //Gets filter conditions
+        ListView results_List = this.findViewById(R.id.resultsList);
+        results_Adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, courseList);
+        results_List.setAdapter(results_Adapter);
     }
 
 
@@ -61,12 +65,7 @@ public class compltedCourses extends AppCompatActivity {
         db = (DataBase) extras.getSerializable("database");
     }
 
-    public void displayCurrent(ArrayList<Course> courseList)   {
 
-        ListView results_List = this.findViewById(R.id.resultsList);
-        results_Adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, courseList);
-        results_List.setAdapter(results_Adapter);
-    }
 }
 
 
