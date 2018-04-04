@@ -11,28 +11,7 @@ import java.util.Map;
 public class Course implements Serializable {
 
     //Instance variables
-    private String WL_Act;
-    private String WL_Cap;
-    private String WL_Rem;
-    private String act;
-    private String cap;
-    private String cred;
-    private String days;
-    private String description;
-    private String enddate;
-    private String faculty;
-    private String location;
-    private String prereq;
-    private String professor;
-    private String rem;
-    private String section;
-    private String startdate;
-    private String subject;
-    private String term;
-    private String time;
-    private String title;
-    private String year;
-    private String prereqf;
+    private String WL_Act, WL_Cap, WL_Rem, act, cap, cred, days, description, enddate, faculty, location, prereq, professor, rem, section, startdate, subject, term, time, title, year, prereqf;
     private ArrayList<Integer> rating;
 
 
