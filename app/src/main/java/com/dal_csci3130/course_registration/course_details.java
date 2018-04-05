@@ -18,6 +18,8 @@ public class course_details extends AppCompatActivity {
     private ArrayList<Course> completed, current, remaining;
     private DataBase db;
     private int rating;
+    private TextView tview;
+    private int max;
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -39,7 +41,6 @@ public class course_details extends AppCompatActivity {
         current = user.getCurrent();
         remaining = user.getRemaining();
         rating = 0;
-        int max = 0;
         if (course.getRating() != null) {
             System.out.println("rating size : " + course.getRating().size());
             for (int x = 0; x < course.getRating().size(); x++) {
@@ -49,7 +50,7 @@ public class course_details extends AppCompatActivity {
             }
         }
         notice = findViewById(R.id.notice);
-        TextView tview = findViewById(R.id.textView);
+        tview = findViewById(R.id.textView);
         tview.setText(course.getTitle() + course.getYear() +
                 "\nRemaining:" + course.getRem() +
                 "\nCapacity:" + course.getCap() +
@@ -106,7 +107,6 @@ public class course_details extends AppCompatActivity {
                         System.out.println("Time conflict between two classes\n");
                         notice.setText(notice.getText() + "Time conflict between two courses");
                         problem = true;
-
                     }
                 }
             }
@@ -123,6 +123,18 @@ public class course_details extends AppCompatActivity {
             user.setCurrent(current);
             user.setRemaining(remaining);
             db.updateCourse(course);
+            tview.setText(course.getTitle() + course.getYear() +
+                    "\nRemaining:" + course.getRem() +
+                    "\nCapacity:" + course.getCap() +
+                    "\nDays:" + course.getDays() +
+                    "\nTime:" + course.getTime() +
+                    "\nTerm:" + course.getTerm() +
+                    "\nProffessor:" + course.getProfessor() +
+                    "\nRating: " + (rating / 1.0) / max +
+                    "\nBuilding:" + course.getLocation() +
+                    "\nDescription:\n" + course.getDescription() +
+                    "\n\nPrereq of: " + course.getPrereq() +
+                    "\n\nPrereq for: " + course.getPrereqf());
         }
     }
 
