@@ -6,8 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
 
 public class login extends Activity {
     private User user;
@@ -64,6 +62,13 @@ public class login extends Activity {
         setResult(0, intent);
         finish();
     }
+
+    /**
+     *  Wait for results from initiated activity and update this activities params
+     * @param requestCode = request code of activity
+     * @param resultCode = result code of activity (expect 0)
+     * @param data = bundles
+     */
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

@@ -269,6 +269,10 @@ public class Main2Activity extends AppCompatActivity {
         return noError;
     }
 
+    /**
+     * return user and db to previous activity
+     */
+
     @Override
     public void onBackPressed() {
         //super.onBackPressed();
@@ -280,6 +284,13 @@ public class Main2Activity extends AppCompatActivity {
         setResult(0, intent);
         finish();
     }
+
+    /**
+     *  Wait for results from initiated activity and update this activities params
+     * @param requestCode = request code of activity
+     * @param resultCode = result code of activity (expect 0)
+     * @param data = bundles
+     */
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

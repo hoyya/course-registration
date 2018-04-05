@@ -146,6 +146,9 @@ public class profile extends AppCompatActivity {
             }
         });
 
+        /**
+         * Listener on the major selection spinner
+         */
         majorSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -174,6 +177,10 @@ public class profile extends AppCompatActivity {
             }
         });
 
+
+        /**
+         * Listener on the minor selection spinner
+         */
         minorSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -203,12 +210,21 @@ public class profile extends AppCompatActivity {
         });
     }
 
+    /**
+     *  Wait for results from initiated activity and update this activities params
+     * @param requestCode = request code of activity
+     * @param resultCode = result code of activity (expect 0)
+     * @param data = bundles
+     */
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         Bundle extras = data.getExtras();
         user = (User) extras.getSerializable("user");
         db = (DataBase) extras.getSerializable("database");
     }
+    /**
+     * return user and db to previous activity
+     */
 
     @Override
     public void onBackPressed() {

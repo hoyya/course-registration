@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Spinner;
+
 import java.util.ArrayList;
 
 public class compltedCourses extends AppCompatActivity {
@@ -58,6 +58,9 @@ public class compltedCourses extends AppCompatActivity {
 
 
 
+    /**
+     * return user and db to previous activity
+     */
 
     @Override
     public void onBackPressed() {

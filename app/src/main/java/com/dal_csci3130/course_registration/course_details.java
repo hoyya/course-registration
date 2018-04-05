@@ -137,6 +137,9 @@ public class course_details extends AppCompatActivity {
                     "\n\nPrereq for: " + course.getPrereqf());
         }
     }
+    /**
+     * return user and db to previous activity
+     */
 
     public void onBackPressed() {
         //super.onBackPressed();
@@ -148,6 +151,13 @@ public class course_details extends AppCompatActivity {
         setResult(0, intent);
         finish();
     }
+
+    /**
+     *  Wait for results from initiated activity and update this activities params
+     * @param requestCode = request code of activity
+     * @param resultCode = result code of activity (expect 0)
+     * @param data = bundles
+     */
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
