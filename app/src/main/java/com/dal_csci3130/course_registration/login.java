@@ -28,17 +28,8 @@ public class login extends Activity {
 
         final EditText username = findViewById(R.id.userName);
         final EditText password = findViewById(R.id.password);
-        Button register = findViewById(R.id.register);
         final Button login = findViewById(R.id.login);
 
-        register.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                startActivity(new Intent(login.this, registration.class));
-
-            }
-        });
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
