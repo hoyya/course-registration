@@ -237,6 +237,7 @@ public class Main2Activity extends AppCompatActivity {
     public boolean timeError(String time) {
 
         boolean Error = false;
+        //TODO:Iterate through current class time for a match
         for (int i = 0; i < user.getCompleted().size(); i++) {
             if (time.equalsIgnoreCase(user.getCompleted().get(i).getTime()))
                 Error = true;
