@@ -37,8 +37,8 @@ public class profile extends AppCompatActivity {
         majorDisplay = findViewById(R.id.majorDisplay);
         minorDisplay = findViewById(R.id.minorDisplay);
 
-        majorDisplay.setText(user.getMajor());
-        minorDisplay.setText(user.getMinor());
+        majorDisplay.setText("Major : "+user.getMajor());
+        minorDisplay.setText("Minor : "+user.getMinor());
 
         Button classSearch = findViewById(R.id.classSearch);
         Button currentCourses = findViewById(R.id.currentCourses);
