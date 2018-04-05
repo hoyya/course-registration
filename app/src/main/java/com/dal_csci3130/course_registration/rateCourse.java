@@ -23,6 +23,8 @@ public class rateCourse extends AppCompatActivity {
     private Adapter adapter;
     private String notice;
     private boolean rated;
+    private TextView tview;
+    int max;
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -44,7 +46,7 @@ public class rateCourse extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
 
-        int max = 0;
+        max = 0;
         if (course.getRating() != null) {
             System.out.println("rating size : " + course.getRating().size());
             for (int x = 0; x < course.getRating().size(); x++) {
@@ -54,7 +56,7 @@ public class rateCourse extends AppCompatActivity {
             }
         }
 
-        TextView tview = (TextView) findViewById(R.id.textView);
+        tview = (TextView) findViewById(R.id.textView);
         tview.setText(course.getTitle() + course.getYear() +
                 "\nRemaining:" + course.getRem() +
                 "\nCapacity:" + course.getCap() +
@@ -120,6 +122,7 @@ public class rateCourse extends AppCompatActivity {
      * Add a rating specified by the user to the course
      * @param view
      */
+    @SuppressLint("SetTextI18n")
     public void addRating(View view) {
         if (!rated) {
             System.out.println("rating = " + rating);
@@ -130,6 +133,20 @@ public class rateCourse extends AppCompatActivity {
             ratings.add(rating);
             course.setRating(ratings);
             db.updateCourse(course);
+            max+=1;
+            tview.setText(course.getTitle() + course.getYear() +
+                "\nRemaining:" + course.getRem() +
+                "\nCapacity:" + course.getCap() +
+                "\nDays:" + course.getDays() +
+                "\nTime:" + course.getTime() +
+                "\nTerm:" + course.getTerm() +
+                "\nProffessor:" + course.getProfessor() +
+                "\nRating: " + (rating / 1.0) / max +
+                "\nBuilding:" + course.getLocation() +
+                "\nDescription:\n" + course.getDescription() +
+                "\n\nPrereq of: " + course.getPrereq() +
+                "\n\nPrereq for: " + course.getPrereqf());
+
         }
         else {
             notice = "already rated this class";
