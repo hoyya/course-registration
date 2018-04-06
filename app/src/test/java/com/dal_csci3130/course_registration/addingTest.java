@@ -12,7 +12,7 @@ import static org.junit.Assert.assertTrue;
 public class addingTest {
 
     //Creates activity to be used
-    private Main2Activity m2a = new Main2Activity();
+    private Search m2a = new Search();
 
     /**
      * Tests if course is already completed

@@ -10,7 +10,7 @@ import static org.junit.Assert.assertTrue;
 
 public class timeTest {
     //Creates activity to be used
-    private Main2Activity m2a = new Main2Activity();
+    private Search m2a = new Search();
 
     /**
      * Tests if for time conflict.

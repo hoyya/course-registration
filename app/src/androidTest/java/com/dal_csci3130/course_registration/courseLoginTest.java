@@ -29,10 +29,10 @@ import static org.hamcrest.Matchers.allOf;
 
 @LargeTest
 @RunWith(AndroidJUnit4.class)
-public class loginTest {
+public class courseLoginTest {
 
     @Rule
-    public ActivityTestRule<login> mActivityTestRule = new ActivityTestRule<>(login.class);
+    public ActivityTestRule<CourseLogin> mActivityTestRule = new ActivityTestRule<>(CourseLogin.class);
 
     @Test
     public void loginTest() {

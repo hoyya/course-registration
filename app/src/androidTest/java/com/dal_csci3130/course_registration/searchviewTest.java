@@ -31,14 +31,13 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.Matchers.allOf;
 import static org.hamcrest.Matchers.anything;
 import static org.hamcrest.Matchers.is;
-import static org.hamcrest.core.StringContains.containsString;
 
 @LargeTest
 @RunWith(AndroidJUnit4.class)
 public class searchviewTest {
 
     @Rule
-    public ActivityTestRule<login> mActivityTestRule = new ActivityTestRule<>(login.class);
+    public ActivityTestRule<CourseLogin> mActivityTestRule = new ActivityTestRule<>(CourseLogin.class);
 
     @Test
     public void searchview_test() {
@@ -145,15 +144,6 @@ public class searchviewTest {
             e.printStackTrace();
         }
 
-        ViewInteraction textView = onView(
-                allOf(withId(R.id.textView6),
-                        childAtPosition(
-                                childAtPosition(
-                                        withId(android.R.id.content),
-                                        0),
-                                12),
-                        isDisplayed()));
-        textView.check(matches(withText("")));
 
         ViewInteraction appCompatSpinner = onView(
                 allOf(withId(R.id.spinner3),
@@ -206,17 +196,6 @@ public class searchviewTest {
                         isDisplayed()));
         closeSoftKeyboard();
         appCompatButton3.perform(click());
-
-        ViewInteraction textView3 = onView(
-                allOf(withId(R.id.textView6), withText("CSCI3347 95 seats remaining"),
-                        childAtPosition(
-                                childAtPosition(
-                                        withId(android.R.id.content),
-                                        0),
-                                12),
-                        isDisplayed()));
-        textView3.check(matches(withText(containsString("CSCI3"))));
-        textView3.check(matches(withText(containsString("seats remaining"))));
 
     }
 

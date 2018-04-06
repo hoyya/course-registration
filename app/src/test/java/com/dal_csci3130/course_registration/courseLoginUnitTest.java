@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 /**
  * Created by brandonhussey on 2018-02-28.
  */
-public class loginUnitTest {
+public class courseLoginUnitTest {
     @Test
     public void validUser() throws Exception {
 
@@ -17,8 +17,8 @@ public class loginUnitTest {
         boolean output = false;
         boolean expected = true;
 
-        login loginTest = new login();
-        loginTest.validUser(uName, pass);
+        CourseLogin courseLoginTest = new CourseLogin();
+        courseLoginTest.validUser(uName, pass);
 
         assertEquals(expected, output);
     }

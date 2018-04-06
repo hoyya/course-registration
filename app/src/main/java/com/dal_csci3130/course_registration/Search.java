@@ -16,10 +16,10 @@ import java.util.ArrayList;
 
 /**
  * Created by AJM-D on 2018-02-22.
- * This class is used to search for and show class information using filters.
+ * This class is used to search for and show class information using filters
  */
 
-public class Main2Activity extends AppCompatActivity {
+public class Search extends AppCompatActivity {
 
     //myApplication myapp = (myApplication)getApplication();
     //User user = myapp.getUser();
@@ -86,7 +86,7 @@ public class Main2Activity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 course = results_courses.get(position);
-                Intent intent = new Intent(Main2Activity.this, CourseDetails.class);
+                Intent intent = new Intent(Search.this, CourseDetails.class);
                 Bundle extras = new Bundle();
                 extras.putSerializable("user", user);
                 extras.putSerializable("course", course);
@@ -172,7 +172,7 @@ public class Main2Activity extends AppCompatActivity {
         String year = (Filter2);
         String faculty = (Filter1);
         results_Adapter.clear();
-        filtered_search search_instance = new filtered_search(db);
+        SearchFilter search_instance = new SearchFilter(db);
 
 
         results_courses = search_instance.QUERY_COURSES_DB(faculty, year);
@@ -180,7 +180,7 @@ public class Main2Activity extends AppCompatActivity {
         results_Adapter.addAll(results_courses);
 
     }
-    //This method determines if the user's database profile already has the selected course.
+    //This method determines if the user's database UserProfile already has the selected course.
 
     /**
      * Method is used to compare completed list with inputted parameter.

@@ -16,15 +16,15 @@ public class ExampleUnitTest {
     private int[] year_list = {1,2,3,4,6,8};
     private int[] openspots_list = {0,10,20,50,100};
 
-    filtered_search search1;
-    filtered_search search2;
-    filtered_search search3;
+    SearchFilter search1;
+    SearchFilter search2;
+    SearchFilter search3;
 
     @Test
     public void unit_test1() throws Exception {
-        search1 = new filtered_search(db);
-        search2 = new filtered_search(db);
-        search3 = new filtered_search(db);
+        search1 = new SearchFilter(db);
+        search2 = new SearchFilter(db);
+        search3 = new SearchFilter(db);
 
         db.initialize();
         assertEquals(4, 2 + 2);
