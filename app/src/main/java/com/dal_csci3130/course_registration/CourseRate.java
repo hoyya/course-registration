@@ -127,6 +127,15 @@ public class CourseRate extends AppCompatActivity {
             }
             ratingList.add(rating);
             course.setRating(ratingList);
+
+            for (int x=0;x<user.getCompleted().size(); x++) {
+                if (user.getCompleted().get(x).getFaculty().equals(course.getFaculty())) {
+                    if (user.getCompleted().get(x).getSubject().equals(course.getSubject())) {
+                        user.getCompleted().remove(x);
+                    }
+                }
+            }
+            user.getCompleted().add(course);
             db.updateCourse(course);
 
             max+=1;

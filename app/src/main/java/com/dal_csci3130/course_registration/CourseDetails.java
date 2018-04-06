@@ -101,7 +101,6 @@ public class CourseDetails extends AppCompatActivity {
             for (int x = 1; x < current.size(); x++) {
                 if (Objects.equals(current.get(x).getTime(), course.getTime())) {
                     if (Objects.equals(current.get(x).getDays(), course.getDays())) {
-                        //todo: check conflict conditions for edge cases
                         System.out.println("Time conflict between two classes\n");
                         notice.setText(notice.getText() + "Time conflict between two courses");
                         problem = true;
@@ -111,9 +110,7 @@ public class CourseDetails extends AppCompatActivity {
         }
         //if problem
         if (!problem) {
-            System.out.println("rem_before: " + course.getRem());
             course.setRem("" + (Integer.parseInt(course.getRem()) - 1));
-            System.out.println("rem_after: " + course.getRem());
 
             notice.setText("Course Successfully Added!");
             current.add(course);
