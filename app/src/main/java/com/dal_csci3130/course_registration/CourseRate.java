@@ -129,8 +129,8 @@ public class CourseRate extends AppCompatActivity {
             course.setRating(ratingList);
 
             for (int x=0;x<user.getCompleted().size(); x++) {
-                if (user.getCompleted().get(x).getFaculty().equals(course.getFaculty())) {
-                    if (user.getCompleted().get(x).getSubject().equals(course.getSubject())) {
+                if (user.getCompleted().get(x).getSubject().equals(course.getSubject())) {
+                    if (user.getCompleted().get(x).getYear().equals(course.getYear())) {
                         user.getCompleted().remove(x);
                     }
                 }

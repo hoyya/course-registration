@@ -96,16 +96,35 @@ public class CourseDetails extends AppCompatActivity {
             notice.setText(notice.getText() + "Course is full");
             problem = true;
         }
-        //check time conflict
+        //check for time conflict
         if (!problem) {
             for (int x = 1; x < current.size(); x++) {
-                if (Objects.equals(current.get(x).getTime(), course.getTime())) {
-                    if (Objects.equals(current.get(x).getDays(), course.getDays())) {
-                        System.out.println("Time conflict between two classes\n");
-                        notice.setText(notice.getText() + "Time conflict between two courses");
-                        problem = true;
+                if (Objects.equals(current.get(x).getTerm(), course.getTerm())) {
+                    for (int dy = 0; dy < current.get(x).getDays().length(); dy++) {
+                        for (int dz = 0; dz < course.getDays().length(); dz++) {
+                            if (Objects.equals(current.get(x).getDays().charAt(dy), course.getDays().charAt(dz))) {
+
+                                //split time at dash and remove colon.
+                                // example: 14:50 - 16:50 -> [1450,1650]
+                                String time_start1 = course.getTime().split("-")[0].replaceAll(":", "");
+                                String time_end1 = course.getTime().split("-")[1].replaceAll(":", "");
+                                String time_start2 = current.get(x).getTime().split("-")[0].replaceAll(":", "");
+                                String time_end2 = current.get(x).getTime().split("-")[1].replaceAll(":", "");
+
+                                if (Integer.parseInt(time_start1) > Integer.parseInt(time_start2) && Integer.parseInt(time_start1) < Integer.parseInt(time_end2)
+                                        || Integer.parseInt(time_end1) > Integer.parseInt(time_start1) && Integer.parseInt(time_end1) < Integer.parseInt(time_end2)
+                                        || Integer.parseInt(time_start1) == Integer.parseInt(time_start2)) {
+                                    notice.setText(notice.getText() + "Time conflict with " + current.get(x).getSubject() + current.get(x).getYear()+"\n"+
+                                    current.get(x).getDays()+"\t"+current.get(x).getTime());
+                                    problem = true;
+                                    break;
+                                }
+                            }
+                        }
+                        if (problem) break;
                     }
                 }
+                if (problem) break;
             }
         }
         //if problem
@@ -132,6 +151,7 @@ public class CourseDetails extends AppCompatActivity {
                     "\n\nPrereq for: " + course.getPrereqf());
         }
     }
+
     /**
      * return user and db to previous activity
      */
