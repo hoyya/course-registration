@@ -238,8 +238,8 @@ public class Search extends AppCompatActivity {
 
         boolean Error = false;
         //TODO:Iterate through current class time for a match
-        for (int i = 0; i < user.getCompleted().size(); i++) {
-            if (time.equalsIgnoreCase(user.getCompleted().get(i).getTime()))
+        for (int i = 0; i < user.getCurrent().size(); i++) {
+            if (time.equalsIgnoreCase(user.getCurrent().get(i).getTime()))
                 Error = true;
         }
         return Error;
