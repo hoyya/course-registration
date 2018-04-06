@@ -108,7 +108,7 @@ public class DataBase implements Serializable {
 		remaining2.add(course10);
 		remaining2.add(course11);
 
-		User user2 = new User("lolipop@dal.ca","Luke",completed2,current2,remaining2,"Duke","adri@tIk","B00878787", "Mathematics", "Political Science");
+		User user2 = new User("lolipop@dal.ca","Lu\t\tUser user2 = new User(\"lolipop@dal.ca\",\"Luke\",completed2,current2,remaining2,\"Duke\",\"adri@tIk\",\"B00878787\", \"Mathematics\", \"Political Science\");\nke",completed2,current2,remaining2,"Duke","adri@tIk","B00878787", "Mathematics", "Political Science");
 
 		userlist.add(user1);
 		userlist.add(user2);

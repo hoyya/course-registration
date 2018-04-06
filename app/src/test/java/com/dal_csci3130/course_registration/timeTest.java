@@ -7,10 +7,12 @@ import static org.junit.Assert.assertTrue;
 /**
  * Created by AJ on 2018-03-19.
  */
-
+//TODO: These tests don't do anything
 public class timeTest {
+
     //Creates activity to be used
     private Search m2a = new Search();
+
 
     /**
      * Tests if for time conflict.
