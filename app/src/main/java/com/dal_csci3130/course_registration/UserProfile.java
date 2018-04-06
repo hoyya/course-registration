@@ -44,13 +44,14 @@ public class UserProfile extends AppCompatActivity {
         Button currentCourses = findViewById(R.id.currentCourses);
         Button remainingCourses = findViewById(R.id.remainingCourses);
         Button completedCourses = findViewById(R.id.completedCourses);
+        Button save = findViewById(R.id.save);
 
         Spinner facultySpinner = findViewById(R.id.facultyspinner);
-        Spinner majorSpinner = findViewById(R.id.majorspinner);
-        Spinner minorSpinner = findViewById(R.id.minorspinner);
+        final Spinner majorSpinner = findViewById(R.id.majorspinner);
+        final Spinner minorSpinner = findViewById(R.id.minorspinner);
 
         ArrayAdapter<CharSequence> facultyAdapter = ArrayAdapter.createFromResource(this, R.array.faculty_array2, android.R.layout.simple_spinner_item);
-        ArrayAdapter<CharSequence> majorAdapter = ArrayAdapter.createFromResource(this, R.array.major_array, android.R.layout.simple_spinner_item);
+        final ArrayAdapter<CharSequence> majorAdapter = ArrayAdapter.createFromResource(this, R.array.major_array, android.R.layout.simple_spinner_item);
         ArrayAdapter<CharSequence> minorAdapter = ArrayAdapter.createFromResource(this, R.array.minor_array, android.R.layout.simple_spinner_item);
 
         facultyAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -114,6 +115,21 @@ public class UserProfile extends AppCompatActivity {
                 intent.putExtra("database", db);
                 startActivityForResult(intent, 0);
 
+            }
+        });
+
+        save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(majorSpinner.getSelectedItem().toString()!=null) {
+                    user.setMajor(majorSpinner.getSelectedItem().toString());
+                    majorDisplay.setText("Major: " + user.getMajor());
+                }
+
+                if(minorSpinner.getSelectedItem().toString()!=null) {
+                    user.setMinor(minorSpinner.getSelectedItem().toString());
+                    minorDisplay.setText("Minor: " + user.getMinor());
+                }
             }
         });
 
