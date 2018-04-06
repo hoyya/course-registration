@@ -28,9 +28,7 @@ public class ClassRemaining extends AppCompatActivity {
         //drop_Button = this.findViewById(R.id.dropButton);
         //Gets filter conditions
 
-        ListView results_List = this.findViewById(R.id.resultsList);
-        results_Adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, courseList);
-        results_List.setAdapter(results_Adapter);
+        displayRemaining(courseList);
     }
 
     /**
@@ -59,5 +57,11 @@ public class ClassRemaining extends AppCompatActivity {
         Bundle extras = data.getExtras();
         user = (User) extras.getSerializable("user");
         db = (DataBase) extras.getSerializable("database");
+    }
+
+    public void displayRemaining(ArrayList<Course> courseList)  {
+        ListView results_List = this.findViewById(R.id.resultsList);
+        results_Adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, courseList);
+        results_List.setAdapter(results_Adapter);
     }
 }
