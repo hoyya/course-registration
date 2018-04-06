@@ -19,8 +19,6 @@ public class CourseRate extends AppCompatActivity {
     private User user;
     private DataBase db;
     private int rating;
-    private Spinner spinner;
-    private Adapter adapter;
     private String notice;
     private boolean rated;
     private TextView tview;
@@ -158,7 +156,6 @@ public class CourseRate extends AppCompatActivity {
      */
     @Override
     public void onBackPressed() {
-        //super.onBackPressed();
         Intent intent = new Intent();
         Bundle extras = new Bundle();
         extras.putSerializable("user", user);

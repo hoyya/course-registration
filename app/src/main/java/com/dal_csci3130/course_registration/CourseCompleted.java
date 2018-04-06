@@ -29,10 +29,9 @@ public class CourseCompleted extends AppCompatActivity {
 
         ArrayList<Course> courseList = user.getCompleted();
 
-        //drop_Button = this.findViewById(R.id.dropButton);
         //Gets filter conditions
         displayCompleted(courseList);
-        
+
 
         //TODO: need to add a button to rate a course
 

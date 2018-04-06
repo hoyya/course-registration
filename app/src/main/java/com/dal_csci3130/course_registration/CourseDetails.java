@@ -68,9 +68,7 @@ public class CourseDetails extends AppCompatActivity {
     @SuppressLint("SetTextI18n")
     public void addClass(View view) {
         boolean problem = false;
-        boolean timeconflict = false;
-        Course conflict1;
-        Course conflict2;
+
         for (int x = 0; x < completed.size(); x++) {
             if (course.getFaculty().equals(completed.get(x).getFaculty())) {
                 if (course.getYear().equals(completed.get(x).getYear())) {

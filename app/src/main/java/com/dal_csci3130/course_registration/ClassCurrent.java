@@ -33,7 +33,6 @@ public class ClassCurrent extends AppCompatActivity {
      */
     @Override
     public void onBackPressed() {
-        //super.onBackPressed();
         Intent intent = new Intent();
         Bundle extras = new Bundle();
         extras.putSerializable("user", user);

@@ -21,19 +21,16 @@ import java.util.ArrayList;
 
 public class Search extends AppCompatActivity {
 
-    //myApplication myapp = (myApplication)getApplication();
-    //User user = myapp.getUser();
+
 
     public String Filter1, Filter2;
     public User user;
-    public int year, seats;
     public ArrayAdapter results_Adapter;
     public ArrayList<Course> results_courses;
 
-    ArrayList<Course> courseList = new ArrayList<Course>();
     ArrayList<Course> database_results = new ArrayList<Course>();
 
-    TextView text2, text3, text4, text5;
+    TextView text2, text3, text5;
     ListView results_List;
     Button Apply_Button;
     DataBase db;
@@ -166,7 +163,6 @@ public class Search extends AppCompatActivity {
 
     public void filterApply(View v) {
         //results of query
-        String tmp_string = "";
 
         //parses string input to int
         String year = (Filter2);
@@ -276,7 +272,6 @@ public class Search extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        //super.onBackPressed();
         Intent intent = new Intent();
         Bundle extras = new Bundle();
         extras.putSerializable("user", user);

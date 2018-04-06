@@ -44,7 +44,6 @@ public class CourseLogin extends Activity {
 
     @Override
     public void onBackPressed() {
-        //super.onBackPressed();
         Intent intent = new Intent();
         Bundle extras = new Bundle();
         extras.putSerializable("user", user);

@@ -25,7 +25,6 @@ public class ClassRemaining extends AppCompatActivity {
         db = (DataBase) extras.getSerializable("database");
         ArrayList<Course> courseList = user.getRemaining();
 
-        //drop_Button = this.findViewById(R.id.dropButton);
         //Gets filter conditions
 
         displayRemaining(courseList);
@@ -36,7 +35,6 @@ public class ClassRemaining extends AppCompatActivity {
      */
     @Override
     public void onBackPressed() {
-        //super.onBackPressed();
         Intent intent = new Intent();
         Bundle extras = new Bundle();
         extras.putSerializable("user", user);
