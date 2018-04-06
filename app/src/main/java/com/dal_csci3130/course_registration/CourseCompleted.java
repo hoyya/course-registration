@@ -15,7 +15,8 @@ public class CourseCompleted extends AppCompatActivity {
     private Course course;
     private User user;
     private DataBase db;
-    public ArrayAdapter<Course> results_Adapter;
+    private ArrayAdapter<Course> results_Adapter;
+    private ArrayList<Course> courseList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,17 +28,10 @@ public class CourseCompleted extends AppCompatActivity {
         user = (User) extras.getSerializable("user");
         db = (DataBase) extras.getSerializable("database");
 
-        ArrayList<Course> courseList = user.getCompleted();
+        courseList = user.getCompleted();
 
         //Gets filter conditions
         displayCompleted(courseList);
-
-
-        //TODO: need to add a button to rate a course
-
-        /**
-         * return user and db to previous activity
-         */
     }
 
 
@@ -70,6 +64,8 @@ public class CourseCompleted extends AppCompatActivity {
         Bundle extras = data.getExtras();
         user = (User) extras.getSerializable("user");
         db = (DataBase) extras.getSerializable("database");
+        courseList = user.getCompleted();
+        displayCompleted(courseList);
     }
 
     public void displayCompleted(ArrayList<Course> courseList)  {

@@ -5,11 +5,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Adapter;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.ArrayAdapter;
 
 import java.util.ArrayList;
 
@@ -19,6 +18,7 @@ public class CourseRate extends AppCompatActivity {
     private User user;
     private DataBase db;
     private int rating;
+    private int ratings;
     private String notice;
     private boolean rated;
     private TextView tview;
@@ -37,6 +37,7 @@ public class CourseRate extends AppCompatActivity {
         course = (Course) extras.getSerializable("course");
         db = (DataBase) extras.getSerializable("database");
         rating = 0;
+        ratings = 0;
         rated = false;
 
         Spinner spinner = findViewById(R.id.rate_spinner);
@@ -46,10 +47,8 @@ public class CourseRate extends AppCompatActivity {
 
         max = 0;
         if (course.getRating() != null) {
-            System.out.println("rating size : " + course.getRating().size());
             for (int x = 0; x < course.getRating().size(); x++) {
-                System.out.println("rating : " + course.getRating().get(x));
-                rating += course.getRating().get(x);
+                ratings += course.getRating().get(x);
                 max += 1;
             }
         }
@@ -62,7 +61,7 @@ public class CourseRate extends AppCompatActivity {
                 "\nTime:" + course.getTime() +
                 "\nTerm:" + course.getTerm() +
                 "\nProffessor:" + course.getProfessor() +
-                "\nRating: " + (rating / 1.0) / max +
+                "\nRating: " + ((ratings * 1.0) / max) +
                 "\nBuilding:" + course.getLocation() +
                 "\nDescription:\n" + course.getDescription() +
                 "\n\nPrereq of: " + course.getPrereq() +
@@ -72,7 +71,6 @@ public class CourseRate extends AppCompatActivity {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                System.out.println("rating before = "+rating);
                 switch (i) {
                     case 0:
                         rating = 1;
@@ -110,7 +108,6 @@ public class CourseRate extends AppCompatActivity {
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-
                 rating = 1;
             }
         });
@@ -124,14 +121,17 @@ public class CourseRate extends AppCompatActivity {
     public void addRating(View view) {
         if (!rated) {
             System.out.println("rating = " + rating);
-            ArrayList<Integer> ratings = course.getRating();
-            if (ratings == null) {
-                ratings = new ArrayList<Integer>();
+            ArrayList<Integer> ratingList = course.getRating();
+            if (ratingList == null) {
+                ratingList = new ArrayList<>();
             }
-            ratings.add(rating);
-            course.setRating(ratings);
+            ratingList.add(rating);
+            course.setRating(ratingList);
             db.updateCourse(course);
+
             max+=1;
+            ratings += rating;
+
             tview.setText(course.getTitle() + course.getYear() +
                 "\nRemaining:" + course.getRem() +
                 "\nCapacity:" + course.getCap() +
@@ -139,7 +139,7 @@ public class CourseRate extends AppCompatActivity {
                 "\nTime:" + course.getTime() +
                 "\nTerm:" + course.getTerm() +
                 "\nProffessor:" + course.getProfessor() +
-                "\nRating: " + (rating / 1.0) / max +
+                "\nRating: " + ((ratings * 1.0) / max) +
                 "\nBuilding:" + course.getLocation() +
                 "\nDescription:\n" + course.getDescription() +
                 "\n\nPrereq of: " + course.getPrereq() +
