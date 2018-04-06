@@ -119,7 +119,7 @@ public class CourseRate extends AppCompatActivity {
     }
 
     /**
-     * Add a rating specified by the user to the course
+     * Add a rating specified by the user to the course, makes rated true after setting
      * @param view
      */
     @SuppressLint("SetTextI18n")
@@ -146,7 +146,7 @@ public class CourseRate extends AppCompatActivity {
                 "\nDescription:\n" + course.getDescription() +
                 "\n\nPrereq of: " + course.getPrereq() +
                 "\n\nPrereq for: " + course.getPrereqf());
-
+            rated=true;
         }
         else {
             notice = "already rated this class";
