@@ -147,15 +147,11 @@ public class DataBase implements Serializable {
 		return userlist.get(userlist.indexOf(user));
 	}
 
-	public ArrayList<User> getUserlist() {
+	ArrayList<User> getUserlist() {
 		return userlist;
 	}
 
-	public ArrayList<Course> getCourselist() {
+	ArrayList<Course> getCourselist() {
 		return courselist;
-	}
-
-	public boolean exists() {
-		return true;
 	}
 }

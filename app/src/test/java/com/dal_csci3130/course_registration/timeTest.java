@@ -31,7 +31,7 @@ public class timeTest {
      */
     @Test
     public void timeError() throws Exception {
-        assertTrue(m2a.timeErrorThrown("1100"));
+        assertTrue(m2a.timeErrorThrown());
     }
 
     /**

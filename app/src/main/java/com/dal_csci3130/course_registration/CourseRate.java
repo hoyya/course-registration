@@ -19,7 +19,6 @@ public class CourseRate extends AppCompatActivity {
     private DataBase db;
     private int rating;
     private int ratings;
-    private String notice;
     private boolean rated;
     private TextView tview;
     int max;
@@ -53,7 +52,7 @@ public class CourseRate extends AppCompatActivity {
             }
         }
 
-        tview = (TextView) findViewById(R.id.textView);
+        tview = findViewById(R.id.textView);
         tview.setText(course.getTitle() + course.getYear() +
                 "\nRemaining:" + course.getRem() +
                 "\nCapacity:" + course.getCap() +
@@ -156,7 +155,7 @@ public class CourseRate extends AppCompatActivity {
             rated=true;
         }
         else {
-            notice = "already rated this class";
+            String notice = "already rated this class";
         }
     }
 

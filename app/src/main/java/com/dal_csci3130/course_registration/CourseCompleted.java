@@ -15,7 +15,6 @@ public class CourseCompleted extends AppCompatActivity {
     private Course course;
     private User user;
     private DataBase db;
-    private ArrayAdapter<Course> results_Adapter;
     private ArrayList<Course> courseList;
 
     @Override
@@ -70,7 +69,7 @@ public class CourseCompleted extends AppCompatActivity {
 
     public void displayCompleted(ArrayList<Course> courseList)  {
         ListView results_List = this.findViewById(R.id.resultsList);
-        results_Adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, courseList);
+        ArrayAdapter<Course> results_Adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, courseList);
         results_List.setAdapter(results_Adapter);
 
         results_List.setOnItemClickListener(new AdapterView.OnItemClickListener() {
