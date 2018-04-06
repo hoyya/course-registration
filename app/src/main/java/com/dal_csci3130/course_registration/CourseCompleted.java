@@ -31,23 +31,8 @@ public class CourseCompleted extends AppCompatActivity {
 
         //drop_Button = this.findViewById(R.id.dropButton);
         //Gets filter conditions
-        ListView results_List = this.findViewById(R.id.resultsList);
-        results_Adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, courseList);
-        results_List.setAdapter(results_Adapter);
-
-        results_List.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                course = user.getCompleted().get(position);
-                Intent intent = new Intent(CourseCompleted.this, CourseRate.class);
-                Bundle extras = new Bundle();
-                extras.putSerializable("user", user);
-                extras.putSerializable("course", course);
-                extras.putSerializable("database", db);
-                intent.putExtras(extras);
-                startActivityForResult(intent, 0);
-            }
-        });
+        displayCompleted(courseList);
+        
 
         //TODO: need to add a button to rate a course
 
@@ -86,6 +71,26 @@ public class CourseCompleted extends AppCompatActivity {
         Bundle extras = data.getExtras();
         user = (User) extras.getSerializable("user");
         db = (DataBase) extras.getSerializable("database");
+    }
+
+    public void displayCompleted(ArrayList<Course> courseList)  {
+        ListView results_List = this.findViewById(R.id.resultsList);
+        results_Adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, courseList);
+        results_List.setAdapter(results_Adapter);
+
+        results_List.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                course = user.getCompleted().get(position);
+                Intent intent = new Intent(CourseCompleted.this, CourseRate.class);
+                Bundle extras = new Bundle();
+                extras.putSerializable("user", user);
+                extras.putSerializable("course", course);
+                extras.putSerializable("database", db);
+                intent.putExtras(extras);
+                startActivityForResult(intent, 0);
+            }
+        });
     }
 
 
