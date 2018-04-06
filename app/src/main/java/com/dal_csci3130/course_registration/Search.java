@@ -25,7 +25,7 @@ public class Search extends AppCompatActivity {
 
     public String Filter1, Filter2;
     public User user;
-    public ArrayAdapter results_Adapter;
+    public ArrayAdapter<Course> results_Adapter;
     public ArrayList<Course> results_courses;
 
     ArrayList<Course> database_results = new ArrayList<Course>();
@@ -76,7 +76,7 @@ public class Search extends AppCompatActivity {
 
 
         results_List = this.findViewById(R.id.resultsList);
-        results_Adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, database_results);
+        results_Adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, database_results);
         results_List.setAdapter(results_Adapter);
 
         results_List.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -248,7 +248,7 @@ public class Search extends AppCompatActivity {
      * @return
      */
     public boolean deniedTime(String time) {
-        boolean noAccess = true;
+        boolean noAccess;
         noAccess = this.timeError(time);
         return noAccess;
     }
@@ -256,13 +256,12 @@ public class Search extends AppCompatActivity {
     /**
      * This method checks if there is an error and gives proper error.
      *
-     * @param time
      * @return
      */
 
-    public boolean timeErrorThrown(String time) {
-        boolean noError = false;
-        noError = this.deniedTime(time);
+    public boolean timeErrorThrown() {
+        boolean noError;
+        noError = this.deniedTime("1100");
         return noError;
     }
 
