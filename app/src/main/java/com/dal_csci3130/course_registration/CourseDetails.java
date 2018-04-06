@@ -10,7 +10,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class course_details extends AppCompatActivity {
+public class CourseDetails extends AppCompatActivity {
 
     private TextView notice;
     private Course course;

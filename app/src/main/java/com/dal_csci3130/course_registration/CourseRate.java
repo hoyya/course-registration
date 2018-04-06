@@ -13,7 +13,7 @@ import android.widget.ArrayAdapter;
 
 import java.util.ArrayList;
 
-public class rateCourse extends AppCompatActivity {
+public class CourseRate extends AppCompatActivity {
 
     private Course course;
     private User user;

@@ -5,27 +5,32 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
 import java.util.ArrayList;
 
-public class currentClasses extends AppCompatActivity {
+public class ClassRemaining extends AppCompatActivity {
 
     private User user;
     private DataBase db;
     public ArrayAdapter<Course> results_Adapter;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_current_classes);
+        setContentView(R.layout.activity_remaining_classes);
+
         Intent i = getIntent();
         Bundle extras = i.getExtras();
         user = (User) extras.getSerializable("user");
         db = (DataBase) extras.getSerializable("database");
+        ArrayList<Course> courseList = user.getRemaining();
 
-        ArrayList<Course> courseList = user.getCurrent();
+        //drop_Button = this.findViewById(R.id.dropButton);
+        //Gets filter conditions
 
-        displayCurrent(courseList);
+        ListView results_List = this.findViewById(R.id.resultsList);
+        results_Adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, courseList);
+        results_List.setAdapter(results_Adapter);
     }
 
     /**
@@ -49,18 +54,10 @@ public class currentClasses extends AppCompatActivity {
      * @param resultCode = result code of activity (expect 0)
      * @param data = bundles
      */
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+ public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         Bundle extras = data.getExtras();
         user = (User) extras.getSerializable("user");
         db = (DataBase) extras.getSerializable("database");
     }
-
-    public void displayCurrent(ArrayList<Course> courseList)   {
-
-        ListView results_List = this.findViewById(R.id.resultsList);
-        results_Adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, courseList);
-        results_List.setAdapter(results_Adapter);
-    }
 }
-

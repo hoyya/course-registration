@@ -86,7 +86,7 @@ public class Main2Activity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 course = results_courses.get(position);
-                Intent intent = new Intent(Main2Activity.this, course_details.class);
+                Intent intent = new Intent(Main2Activity.this, CourseDetails.class);
                 Bundle extras = new Bundle();
                 extras.putSerializable("user", user);
                 extras.putSerializable("course", course);

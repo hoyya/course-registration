@@ -27,13 +27,12 @@
                 <category android:name="android.intent.category.ALTERNATIVE" />
             </intent-filter>
         </activity>
-        <activity android:name=".compltedCourses" />
-        <activity android:name=".currentClasses" />
-        <activity android:name=".remainingCourses" />
-        <activity android:name=".remainingClasses" />
-        <activity android:name=".course_details" />
+        <activity android:name=".CourseCompleted" />
+        <activity android:name=".ClassCurrent" />
+        <activity android:name=".ClassRemaining" />
+        <activity android:name=".CourseDetails" />
         <activity
-            android:name=".rateCourse"
+            android:name=".CourseRate"
             android:label="@string/title_activity_rate_course"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>

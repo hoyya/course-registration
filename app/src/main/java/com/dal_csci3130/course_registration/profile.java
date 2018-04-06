@@ -85,7 +85,7 @@ public class profile extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(profile.this, currentClasses.class);
+                Intent intent = new Intent(profile.this, ClassCurrent.class);
                 intent.putExtra("user", user);
                 intent.putExtra("database", db);
                 startActivityForResult(intent, 0);
@@ -97,7 +97,7 @@ public class profile extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(profile.this, compltedCourses.class);
+                Intent intent = new Intent(profile.this, CourseCompleted.class);
                 intent.putExtra("user", user);
                 intent.putExtra("database", db);
                 startActivityForResult(intent, 0);
@@ -109,7 +109,7 @@ public class profile extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(profile.this, remainingClasses.class);
+                Intent intent = new Intent(profile.this, ClassRemaining.class);
                 intent.putExtra("user", user);
                 intent.putExtra("database", db);
                 startActivityForResult(intent, 0);

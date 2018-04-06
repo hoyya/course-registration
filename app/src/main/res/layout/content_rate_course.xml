@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.dal_csci3130.course_registration.rateCourse"
+    tools:context="com.dal_csci3130.course_registration.CourseRate"
     tools:showIn="@layout/activity_rate_course">
 
     <TextView
