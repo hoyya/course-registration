@@ -127,6 +127,7 @@ public class CourseDetails extends AppCompatActivity {
                 if (problem) break;
             }
         }
+
         //if problem
         if (!problem) {
             course.setRem("" + (Integer.parseInt(course.getRem()) - 1));

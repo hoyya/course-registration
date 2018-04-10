@@ -13,7 +13,7 @@ import android.widget.TextView;
 public class UserProfile extends AppCompatActivity {
 
     public String Faculty, Major, Minor;
-    public User user;
+    private User user;
     public DataBase db;
 
     TextView welcome;

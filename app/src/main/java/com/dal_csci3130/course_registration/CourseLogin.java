@@ -34,10 +34,19 @@ public class CourseLogin extends Activity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(user==null) {
+                    //function to validate user CourseLogin credentials
+                    validUser(username.getText().toString(), password.getText().toString());
+                }
+                else {
+                    Intent intent = new Intent(CourseLogin.this, UserProfile.class);
+                    Bundle extras = new Bundle();
+                    extras.putSerializable("user", user);
+                    extras.putSerializable("database", db);
+                    intent.putExtras(extras);
+                    startActivityForResult(intent, 0);
 
-                //function to validate user CourseLogin credentials
-                validUser(username.getText().toString(), password.getText().toString());
-
+                }
             }
         });
     }

@@ -119,6 +119,7 @@ public class DataBase implements Serializable {
 	//Methods to update course and user
 	public void updateUser(User user) {
 		//Given a user, change to given user
+
 	}
 
 	public void updateCourse(Course course) {
