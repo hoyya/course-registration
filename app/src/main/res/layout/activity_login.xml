@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/loginbackground"
     tools:context="com.dal_csci3130.course_registration.CourseLogin">
 
     <EditText
@@ -17,7 +18,9 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:hint="Username"
+        android:textColorHint="#FFFF"
         android:text=""
+        android:textColor="#FFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,7 +38,9 @@
         android:ems="10"
         android:inputType="textPassword"
         android:hint="Password"
+        android:textColorHint="#FFFF"
         android:text=""
+        android:textColor="#FFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
