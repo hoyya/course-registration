@@ -21,8 +21,6 @@ import java.util.ArrayList;
 
 public class Search extends AppCompatActivity {
 
-
-
     public String Filter1, Filter2;
     public User user;
     public ArrayAdapter<Course> results_Adapter;
@@ -185,7 +183,7 @@ public class Search extends AppCompatActivity {
      * @return
      */
     public boolean notCompleted(String filterSelection) {
-
+        user = new User();
         ArrayList<Course> courselist = new ArrayList<Course>();
 
         Course course5 = new Course("15","20","5","95","95","3.000","MTW","Matrices","12/12/2017","MATH","LSC Building","{MATH2110 : C|MATH2111 : C}","Math Teacher","5","01","06/09/2017","CSCI","Fall","8:30-9:55","Matrices","2210", "", null);
@@ -197,12 +195,12 @@ public class Search extends AppCompatActivity {
         courselist.add(course6);
         courselist.add(course7);
         courselist.add(course8);
-
+        user.setCompleted(courselist);
         boolean notCompleted = true;
         //loops through to compare if there's a match.
         for (int i=0; i<courselist.size(); i++) {
             //If there's a match with the registered course and selected filter
-            if (courselist.get(i).getTitle().equalsIgnoreCase(filterSelection))
+            if (user.getCompleted().get(i).getTitle().equalsIgnoreCase(filterSelection))
                 notCompleted = false;
         }
         return notCompleted;
@@ -242,6 +240,19 @@ public class Search extends AppCompatActivity {
      * @return
      */
     public boolean timeError(String time) {
+        user = new User();
+        ArrayList<Course> CourseListCurrent = new ArrayList<Course>();
+
+        Course course5 = new Course("15","20","5","95","95","3.000","MTW","Matrices","12/12/2017","MATH","LSC Building","{MATH2110 : C|MATH2111 : C}","Math Teacher","5","01","06/09/2017","CSCI","Fall","8:30-9:55","Matrices","2210", "", null);
+        Course course6 = new Course("15","20","5","95","95","3.000","MTW","Equations","12/12/2017","MATH","LSC Building","{MATH2110 : C|MATH2111 : C}","Math Teacher","0","01","06/09/2017","CSCI","Fall","8:30-9:55","Equations","2211", "", null);
+        Course course7 = new Course("15","20","5","95","95","3.000","MTW","Graphs","12/12/2017","MATH","LSC Building","{MATH2110 : C|MATH2111 : C}","Math Teacher","0","01","06/09/2017","CSCI","Fall","8:30-9:55","Graphs","2212", "", null);
+        Course course8 = new Course("15","20","5","95","95","3.000","MTW","Algebra","12/12/2017","MATH","LSC Building","{MATH2110 : C|MATH2111 : C}","Math Teacher","0","01","06/09/2017","CSCI","Fall","8:30-9:55","Algebra","2213", "", null);
+
+        CourseListCurrent.add(course5);
+        CourseListCurrent.add(course6);
+        CourseListCurrent.add(course7);
+        CourseListCurrent.add(course8);
+        user.setCurrent(CourseListCurrent);
 
         boolean Error = false;
         //TODO:Iterate through current class time for a match
@@ -270,9 +281,9 @@ public class Search extends AppCompatActivity {
      * @return
      */
 
-    public boolean timeErrorThrown() {
+    public boolean timeErrorThrown(String time) {
         boolean noError;
-        noError = this.deniedTime("1100");
+        noError = this.deniedTime(time);
         return noError;
     }
 

@@ -7,7 +7,7 @@ import static org.junit.Assert.assertTrue;
 /**
  * Created by AJ on 2018-03-19.
  */
-//TODO: These tests don't do anything
+
 public class timeTest {
 
     //Creates activity to be used
@@ -21,7 +21,7 @@ public class timeTest {
      */
     @Test
     public void timeCompleted() throws Exception {
-        assertTrue(m2a.timeError("1200"));
+        assertTrue(m2a.timeError("8:30-9:55"));
     }
 
     /**
@@ -31,7 +31,7 @@ public class timeTest {
      */
     @Test
     public void timeError() throws Exception {
-        assertTrue(m2a.timeErrorThrown());
+        assertTrue(m2a.timeErrorThrown("8:30-9:55"));
     }
 
     /**
@@ -41,6 +41,6 @@ public class timeTest {
      */
     @Test
     public void timeDenied() throws Exception{
-        assertTrue(m2a.deniedTime("1200"));
+        assertTrue(m2a.deniedTime("8:30-9:55"));
     }
 }
