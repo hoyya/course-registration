@@ -23,7 +23,7 @@ public class addingTest {
     @Test
     public void testCompleted() throws Exception {
 
-        assertTrue(m2a.notCompleted("CSCI3190"));
+        assertTrue(m2a.notCompleted("Quantum"));
 
     }
 
@@ -35,7 +35,7 @@ public class addingTest {
     //Test if the system properly denies registering for the class.
     @Test
     public void testAccess() throws Exception {
-        assertTrue(m2a.denyAccess("CSCI3190"));
+        assertTrue(m2a.denyAccess("Quantum"));
 
     }
 
@@ -48,7 +48,7 @@ public class addingTest {
     @Test
     public void testError() throws Exception {
 
-        assertTrue(m2a.throwError("CSCI3190"));
+        assertTrue(m2a.throwError("Quantum"));
 
     }
 }

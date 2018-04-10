@@ -186,13 +186,24 @@ public class Search extends AppCompatActivity {
      */
     public boolean notCompleted(String filterSelection) {
 
+        ArrayList<Course> courselist = new ArrayList<Course>();
+
+        Course course5 = new Course("15","20","5","95","95","3.000","MTW","Matrices","12/12/2017","MATH","LSC Building","{MATH2110 : C|MATH2111 : C}","Math Teacher","5","01","06/09/2017","CSCI","Fall","8:30-9:55","Matrices","2210", "", null);
+        Course course6 = new Course("15","20","5","95","95","3.000","MTW","Equations","12/12/2017","MATH","LSC Building","{MATH2110 : C|MATH2111 : C}","Math Teacher","0","01","06/09/2017","CSCI","Fall","8:30-9:55","Equations","2211", "", null);
+        Course course7 = new Course("15","20","5","95","95","3.000","MTW","Graphs","12/12/2017","MATH","LSC Building","{MATH2110 : C|MATH2111 : C}","Math Teacher","0","01","06/09/2017","CSCI","Fall","8:30-9:55","Graphs","2212", "", null);
+        Course course8 = new Course("15","20","5","95","95","3.000","MTW","Algebra","12/12/2017","MATH","LSC Building","{MATH2110 : C|MATH2111 : C}","Math Teacher","0","01","06/09/2017","CSCI","Fall","8:30-9:55","Algebra","2213", "", null);
+
+        courselist.add(course5);
+        courselist.add(course6);
+        courselist.add(course7);
+        courselist.add(course8);
+
         boolean notCompleted = true;
         //loops through to compare if there's a match.
-        for (int i = 0; i < user.getCompleted().size(); i++) {
+        for (int i=0; i<courselist.size(); i++) {
             //If there's a match with the registered course and selected filter
-            if (filterSelection.equalsIgnoreCase(user.getCompleted().get(i).getTitle()))
+            if (courselist.get(i).getTitle().equalsIgnoreCase(filterSelection))
                 notCompleted = false;
-
         }
         return notCompleted;
     }
