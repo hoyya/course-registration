@@ -26,9 +26,9 @@ public class Search extends AppCompatActivity {
     public ArrayAdapter<Course> results_Adapter;
     public ArrayList<Course> results_courses;
 
-    ArrayList<Course> database_results = new ArrayList<Course>();
+    ArrayList<Course> database_results = new ArrayList<>();
 
-    TextView text2, text3, text5;
+    TextView text3, text5;
     ListView results_List;
     Button Apply_Button;
     DataBase db;
@@ -179,12 +179,12 @@ public class Search extends AppCompatActivity {
     /**
      * Method is used to compare completed list with inputted parameter.
      *
-     * @param filterSelection
-     * @return
+     * @param filterSelection = the current filter being used
+     * @return returns variable
      */
     public boolean notCompleted(String filterSelection) {
         user = new User();
-        ArrayList<Course> courselist = new ArrayList<Course>();
+        ArrayList<Course> courselist = new ArrayList<>();
 
         Course course5 = new Course("15","20","5","95","95","3.000","MTW","Matrices","12/12/2017","MATH","LSC Building","{MATH2110 : C|MATH2111 : C}","Math Teacher","5","01","06/09/2017","CSCI","Fall","8:30-9:55","Matrices","2210", "", null);
         Course course6 = new Course("15","20","5","95","95","3.000","MTW","Equations","12/12/2017","MATH","LSC Building","{MATH2110 : C|MATH2111 : C}","Math Teacher","0","01","06/09/2017","CSCI","Fall","8:30-9:55","Equations","2211", "", null);
@@ -209,8 +209,8 @@ public class Search extends AppCompatActivity {
     /**
      * Method tests to see the type of access.
      *
-     * @param filterSelection
-     * @return
+     * @param filterSelection = the current filter being used
+     * @return returns variable
      */
     //This method looks at if the student has completed a class already and makes the appropriate action.
     public boolean denyAccess(String filterSelection) {
@@ -222,13 +222,12 @@ public class Search extends AppCompatActivity {
     /**
      * Method tests if error is correctly given.
      *
-     * @param filterSelection
-     * @return
+     * @return returns variable
      */
     //This method determines if the user was given access or not and gives the appropriate error.
-    public boolean throwError(String filterSelection) {
-        boolean noError = true;
-        noError = this.denyAccess(filterSelection);
+    public boolean throwError() {
+        boolean noError;
+        noError = this.denyAccess("Quantum");
         return noError;
 
     }
@@ -236,12 +235,12 @@ public class Search extends AppCompatActivity {
     /**
      * This method is used to compare all times of the courses with the selected registered time.
      *
-     * @param time
-     * @return
+     * @param time = current time
+     * @return returns variable
      */
     public boolean timeError(String time) {
         user = new User();
-        ArrayList<Course> CourseListCurrent = new ArrayList<Course>();
+        ArrayList<Course> CourseListCurrent = new ArrayList<>();
 
         Course course5 = new Course("15","20","5","95","95","3.000","MTW","Matrices","12/12/2017","MATH","LSC Building","{MATH2110 : C|MATH2111 : C}","Math Teacher","5","01","06/09/2017","CSCI","Fall","8:30-9:55","Matrices","2210", "", null);
         Course course6 = new Course("15","20","5","95","95","3.000","MTW","Equations","12/12/2017","MATH","LSC Building","{MATH2110 : C|MATH2111 : C}","Math Teacher","0","01","06/09/2017","CSCI","Fall","8:30-9:55","Equations","2211", "", null);
@@ -266,8 +265,8 @@ public class Search extends AppCompatActivity {
     /**
      * Checks time error.
      *
-     * @param time
-     * @return
+     * @param time = the current time
+     * @return returns variable
      */
     public boolean deniedTime(String time) {
         boolean noAccess;
@@ -278,7 +277,7 @@ public class Search extends AppCompatActivity {
     /**
      * This method checks if there is an error and gives proper error.
      *
-     * @return
+     * @return time = the current time
      */
 
     public boolean timeErrorThrown(String time) {
@@ -312,8 +311,12 @@ public class Search extends AppCompatActivity {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         Bundle extras = data.getExtras();
-        user = (User) extras.getSerializable("user");
-        db = (DataBase) extras.getSerializable("database");
+        if (extras != null) {
+            user = (User) extras.getSerializable("user");
+        }
+        if (extras != null) {
+            db = (DataBase) extras.getSerializable("database");
+        }
         results_Adapter.clear();
     }
 }

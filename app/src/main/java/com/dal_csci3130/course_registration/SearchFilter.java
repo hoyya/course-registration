@@ -17,7 +17,7 @@ public class SearchFilter {
                         ------ UNFINISHED ----
      */
 
-    public SearchFilter(DataBase in_db) {
+    SearchFilter(DataBase in_db) {
         m_faculty = "";
         m_year = 0;
         m_open_spots = 0;
@@ -103,7 +103,7 @@ public class SearchFilter {
         SearchFilter update = new SearchFilter();
         User user = update.QUERY_USERS_DB(username, password);
      */
-    public User QUERY_USERS_DB(String username, String password) {
+    User QUERY_USERS_DB(String username, String password) {
         DataBase db = new DataBase();
         db.initialize();
 

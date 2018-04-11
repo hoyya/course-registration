@@ -26,19 +26,25 @@ public class UserProfile extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
         Intent i = getIntent();
         Bundle extras = i.getExtras();
-        user = (User) extras.getSerializable("user");
-        db = (DataBase) extras.getSerializable("database");
-        System.out.println("Size of courselist in profile_view: " + db.getCourselist().size());
+        if (extras != null) {
+            user = (User) extras.getSerializable("user");
+        }
+        if (extras != null) {
+            db = (DataBase) extras.getSerializable("database");
+        }
+        if (db != null) {
+            System.out.println("Size of courselist in profile_view: " + db.getCourselist().size());
+        }
 
         //Displays the current users name in a welcome message
         welcome = findViewById(R.id.welcomeMessage);
-        welcome.setText("Welcome, " + user.getFirst_name() + " " + user.getLast_name());
+        welcome.setText(String.format("Welcome, %s %s", user.getFirst_name(), user.getLast_name()));
 
         majorDisplay = findViewById(R.id.majorDisplay);
         minorDisplay = findViewById(R.id.minorDisplay);
 
-        majorDisplay.setText("Major : "+user.getMajor());
-        minorDisplay.setText("Minor : "+user.getMinor());
+        majorDisplay.setText(String.format("Major : %s", user.getMajor()));
+        minorDisplay.setText(String.format("Minor : %s", user.getMinor()));
 
         Button classSearch = findViewById(R.id.classSearch);
         Button currentCourses = findViewById(R.id.currentCourses);
@@ -123,12 +129,12 @@ public class UserProfile extends AppCompatActivity {
             public void onClick(View v) {
                 if(majorSpinner.getSelectedItem().toString()!=null) {
                     user.setMajor(majorSpinner.getSelectedItem().toString());
-                    majorDisplay.setText("Major: " + user.getMajor());
+                    majorDisplay.setText(String.format("Major: %s", user.getMajor()));
                 }
 
                 if(minorSpinner.getSelectedItem().toString()!=null) {
                     user.setMinor(minorSpinner.getSelectedItem().toString());
-                    minorDisplay.setText("Minor: " + user.getMinor());
+                    minorDisplay.setText(String.format("Minor: %s", user.getMinor()));
                 }
             }
         });
@@ -162,9 +168,6 @@ public class UserProfile extends AppCompatActivity {
             }
         });
 
-        /**
-         * Listener on the major selection spinner
-         */
         majorSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -194,9 +197,6 @@ public class UserProfile extends AppCompatActivity {
         });
 
 
-        /**
-         * Listener on the minor selection spinner
-         */
         minorSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -235,8 +235,12 @@ public class UserProfile extends AppCompatActivity {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         Bundle extras = data.getExtras();
-        user = (User) extras.getSerializable("user");
-        db = (DataBase) extras.getSerializable("database");
+        if (extras != null) {
+            user = (User) extras.getSerializable("user");
+        }
+        if (extras != null) {
+            db = (DataBase) extras.getSerializable("database");
+        }
     }
     /**
      * return user and db to previous activity

@@ -21,8 +21,12 @@ public class ClassRemaining extends AppCompatActivity {
 
         Intent i = getIntent();
         Bundle extras = i.getExtras();
-        user = (User) extras.getSerializable("user");
-        db = (DataBase) extras.getSerializable("database");
+        if (extras != null) {
+            user = (User) extras.getSerializable("user");
+        }
+        if (extras != null) {
+            db = (DataBase) extras.getSerializable("database");
+        }
         ArrayList<Course> courseList = user.getRemaining();
 
         //Gets filter conditions
@@ -53,9 +57,13 @@ public class ClassRemaining extends AppCompatActivity {
  public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         Bundle extras = data.getExtras();
-        user = (User) extras.getSerializable("user");
-        db = (DataBase) extras.getSerializable("database");
-    }
+     if (extras != null) {
+         user = (User) extras.getSerializable("user");
+     }
+     if (extras != null) {
+         db = (DataBase) extras.getSerializable("database");
+     }
+ }
 
     public void displayRemaining(ArrayList<Course> courseList)  {
         ListView results_List = this.findViewById(R.id.resultsList);

@@ -10,8 +10,8 @@ public class DataBase implements Serializable {
 	private ArrayList<User> userlist;
 
 	public DataBase() {
-		courselist = new ArrayList<Course>();
-		userlist = new ArrayList<User>();
+		courselist = new ArrayList<>();
+		userlist = new ArrayList<>();
 	}
 
 	public DataBase(ArrayList<Course> courselist, ArrayList<User> userlist) {
@@ -20,18 +20,18 @@ public class DataBase implements Serializable {
 	}
 
 
-	public void initialize() {
+	void initialize() {
 		////GET ALL DB OBJECTS
-		ArrayList<Integer> l1 = new ArrayList<Integer>();
+		ArrayList<Integer> l1 = new ArrayList<>();
 		l1.add(7);
 		l1.add(9);
-		ArrayList<Integer> l2 = new ArrayList<Integer>();
+		ArrayList<Integer> l2 = new ArrayList<>();
 		l2.add(8);
 		l2.add(9);
-		ArrayList<Integer> l3 = new ArrayList<Integer>();
+		ArrayList<Integer> l3 = new ArrayList<>();
 		l3.add(5);
 		l3.add(7);
-		ArrayList<Integer> l4 = new ArrayList<Integer>();
+		ArrayList<Integer> l4 = new ArrayList<>();
 		l4.add(5);
 		l4.add(3);
 
@@ -122,7 +122,7 @@ public class DataBase implements Serializable {
 
 	}
 
-	public void updateCourse(Course course) {
+	void updateCourse(Course course) {
 		for (int x =0; x<courselist.size(); x++) {
 			if (courselist.get(x).getFaculty().equals(course.getFaculty()) && courselist.get(x).getYear().equals(course.getYear()) && courselist.get(x).getSection().equals(course.getSection())) {
 				courselist.remove(x);

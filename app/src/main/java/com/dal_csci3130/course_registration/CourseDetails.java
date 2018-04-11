@@ -178,8 +178,12 @@ public class CourseDetails extends AppCompatActivity {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         Bundle extras = data.getExtras();
-        user = (User) extras.getSerializable("user");
-        db = (DataBase) extras.getSerializable("database");
+        if (extras != null) {
+            user = (User) extras.getSerializable("user");
+        }
+        if (extras != null) {
+            db = (DataBase) extras.getSerializable("database");
+        }
     }
 
     //Getter and setter methods

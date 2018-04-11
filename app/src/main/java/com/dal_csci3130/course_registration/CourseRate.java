@@ -114,7 +114,7 @@ public class CourseRate extends AppCompatActivity {
 
     /**
      * Add a rating specified by the user to the course, makes rated true after setting
-     * @param view
+     * @param view = The student's current view
      */
     @SuppressLint("SetTextI18n")
     public void addRating(View view) {
@@ -183,7 +183,11 @@ public class CourseRate extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         Bundle extras = data.getExtras();
-        user = (User) extras.getSerializable("user");
-        db = (DataBase) extras.getSerializable("database");
+        if (extras != null) {
+            user = (User) extras.getSerializable("user");
+        }
+        if (extras != null) {
+            db = (DataBase) extras.getSerializable("database");
+        }
     }
 }

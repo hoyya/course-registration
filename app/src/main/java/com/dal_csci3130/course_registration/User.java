@@ -20,14 +20,14 @@ public class User implements Serializable {
     /**
      * Constructor to easily set User object information upon instantiation.
      *
-     * @param email
-     * @param first_name
-     * @param completed
-     * @param current
-     * @param remaining
-     * @param last_name
-     * @param password
-     * @param username
+     * @param email = the email of the user
+     * @param first_name = user's first name
+     * @param completed = courses the user has completed
+     * @param current = current courses being taken by the user
+     * @param remaining = classes the user still has to take
+     * @param last_name = user's last name
+     * @param password = user's password
+     * @param username = user's username
      */
     public User(String email, String first_name, ArrayList<Course> completed, ArrayList<Course> current, ArrayList<Course> remaining,
                 String last_name, String password, String username, String major, String minor) {
@@ -49,7 +49,7 @@ public class User implements Serializable {
         return completed;
     }
 
-    public void setCompleted(ArrayList<Course> completed) {
+    void setCompleted(ArrayList<Course> completed) {
         this.completed = completed;
     }
 
@@ -121,18 +121,18 @@ public class User implements Serializable {
         return true;
     }
 
-    public String getMajor () { return major; }
+    String getMajor() { return major; }
 
-    public void setMajor(String major) { this.major = major; }
+    void setMajor(String major) { this.major = major; }
 
-    public String getMinor() { return minor; }
+    String getMinor() { return minor; }
 
-    public void setMinor(String minor) { this.minor = minor; }
+    void setMinor(String minor) { this.minor = minor; }
 
     /**
      * Method to display User object information
      *
-     * @return
+     * @return returns variable
      */
     boolean stringify() {
 

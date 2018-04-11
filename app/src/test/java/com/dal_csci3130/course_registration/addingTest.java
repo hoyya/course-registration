@@ -48,7 +48,7 @@ public class addingTest {
     @Test
     public void testError() throws Exception {
 
-        assertTrue(m2a.throwError("Quantum"));
+        assertTrue(m2a.throwError());
 
     }
 }

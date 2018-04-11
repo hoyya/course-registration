@@ -17,7 +17,7 @@ public class timeTest {
     /**
      * Tests if for time conflict.
      *
-     * @throws Exception
+     * @throws Exception 1
      */
     @Test
     public void timeCompleted() throws Exception {
@@ -27,7 +27,7 @@ public class timeTest {
     /**
      * Tests if error is properly thrown.
      *
-     * @throws Exception
+     * @throws Exception 2
      */
     @Test
     public void timeError() throws Exception {
@@ -37,7 +37,7 @@ public class timeTest {
     /**
      * Tests for conflicts and gives appropriate action
      *
-     * @throws Exception
+     * @throws Exception 3
      */
     @Test
     public void timeDenied() throws Exception{

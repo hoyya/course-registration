@@ -21,29 +21,29 @@ public class Course implements Serializable {
     /**
      * Constructor to easily set values for course object.
      *
-     * @param WL_Act
-     * @param WL_Cap
-     * @param WL_Rem
-     * @param act
-     * @param cap
-     * @param cred
-     * @param days
-     * @param description
-     * @param enddate
-     * @param faculty
-     * @param location
-     * @param prereq
-     * @param professor
-     * @param rem
-     * @param section
-     * @param startdate
-     * @param subject
-     * @param term
-     * @param time
-     * @param title
-     * @param year
-     * @param prereqf
-     * @rating rating
+     * @param WL_Act = People on wait list
+     * @param WL_Cap = Max of wait list
+     * @param WL_Rem = remaining on wait list
+     * @param act = number of people in course
+     * @param cap = max number of people in course
+     * @param cred = How many credits the course is worth
+     * @param days = What days of the week the ourse is held
+     * @param description = a brief description of the course
+     * @param enddate = Date the course ends
+     * @param faculty = Comp Sci, Science, Arts, etc.
+     * @param location = place where the class is held
+     * @param prereq = If it is a prereq
+     * @param professor = the prof
+     * @param rem = remaining
+     * @param section = class section
+     * @param startdate = course start date
+     * @param subject = What the course is about
+     * @param term = Fall or Winter
+     * @param time = the time of day of the class
+     * @param title = What the course is officially called
+     * @param year = the year the course is being held
+     * @param prereqf = If it requires a prereq
+     * @rating rating = what rating students give the course
      */
     public Course(String WL_Act, String WL_Cap, String WL_Rem, String act,
                   String cap, String cred, String days, String description, String enddate,
