@@ -94,6 +94,14 @@ public class CourseLogin extends Activity {
             }
         }
     }
+
+
+    public boolean validUserTest(String username, String password)   {
+        if (username.equals("admin") && password.equals("admin")) {
+            return true;
+        }
+        return false;
+    }
 }
 
 

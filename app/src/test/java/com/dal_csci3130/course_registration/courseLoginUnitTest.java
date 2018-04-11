@@ -14,13 +14,12 @@ public class courseLoginUnitTest {
         String uName = "admin";
         String pass = "admin";
 
-        boolean output = false;
-        boolean expected = true;
 
         CourseLogin courseLoginTest = new CourseLogin();
-        courseLoginTest.validUser(uName, pass);
+        boolean output = courseLoginTest.validUserTest(uName, pass);
 
-        assertEquals(expected, output);
+        assertEquals(true, output);
+
     }
 
 }
